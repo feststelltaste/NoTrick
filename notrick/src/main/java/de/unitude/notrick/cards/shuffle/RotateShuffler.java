@@ -16,15 +16,16 @@ import de.unitude.notrick.cards.deck.CardDeck;
 
 public class RotateShuffler implements Shuffler {
 
-	private CardDeck cardDeck;
+    private CardDeck cardDeck;
 
-	public RotateShuffler(CardDeck cardDeck) {
-		this.cardDeck = cardDeck;
-	}
+    public RotateShuffler(CardDeck cardDeck) {
+	this.cardDeck = cardDeck;
+    }
 
-	public CardDeck shuffleCards() {
-		Collections.rotate(cardDeck.getAsList(), -8);
-		return cardDeck;
-	}
+    @Override
+    public CardDeck shuffleCards() {
+	Collections.rotate(cardDeck.getAsList(), -8);
+	return cardDeck;
+    }
 
 }

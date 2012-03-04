@@ -7,8 +7,9 @@ import de.unitude.notrick.cards.card.Card;
 
 public class CardSorter {
 
-	public static void sortLowestPriorityFirst(List<Card> cards) {
-		Collections.sort(cards, Collections.reverseOrder(new PriorityCardComparator()));
-	}
+    public static void sortLowestPriorityFirst(List<Card> cards) {
+	Collections.sort(cards,
+		Collections.reverseOrder(new PriorityCardComparator()));
+    }
 
 }

@@ -1,7 +1,7 @@
 package de.unitude.notrick.cards.dealing;
 
 public interface CardDealingStrategy {
-	
-	public void deal();
+
+    public void deal();
 
 }

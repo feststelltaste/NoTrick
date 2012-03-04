@@ -11,51 +11,51 @@ import de.unitude.notrick.cards.sorting.PriorityCardComparator;
 
 public class FrenchShortCardDeckTest {
 
-	CardDeck cardDeck;
+    CardDeck cardDeck;
 
-	@Before
-	public void setUp() throws Exception {
-		cardDeck = new FrenchShortCardDeck();
+    @Before
+    public void setUp() throws Exception {
+	cardDeck = new FrenchShortCardDeck();
+    }
+
+    @Test
+    public void testInitCardDeckConsistency() {
+
+	int i = 0;
+	int color = 0;
+	int type = 0;
+
+	while (cardDeck.hasCards()) {
+	    Card c = cardDeck.nextCard();
+	    color = i / 8;
+	    type = i % 8;
+	    assertEquals(color, c.getColor().getPriority());
+	    assertEquals(type, c.getType().getPriority());
+	    i++;
 	}
+    }
 
-	@Test
-	public void testInitSomeCards() {
-		assertEquals(FrenchType.ACE, cardDeck.nextCard().getType());
-		assertEquals(FrenchType.KING, cardDeck.nextCard().getType());
-		assertEquals(FrenchColor.CLUB, cardDeck.nextCard().getColor());
-		cardDeck.nextCard();
-		cardDeck.nextCard();
-		cardDeck.nextCard();
-		cardDeck.nextCard();
-		cardDeck.nextCard();
-		assertEquals(FrenchColor.DIAMOND, cardDeck.nextCard().getColor());
+    @Test
+    public void testInitCardDeckOrderingWithComparator() {
+	PriorityCardComparator comparator = new PriorityCardComparator();
+	Card formerCard = cardDeck.nextCard();
+	while (cardDeck.hasCards()) {
+	    Card currentCard = cardDeck.nextCard();
+	    assertEquals(1, comparator.compare(formerCard, currentCard));
+	    formerCard = currentCard;
 	}
+    }
 
-	@Test
-	public void testInitCardDeckConsistency() {
-
-		int i = 0;
-		int color = 0;
-		int type = 0;
-
-		while (cardDeck.hasCards()) {
-			Card c = cardDeck.nextCard();
-			color = i / 8;
-			type = i % 8;
-			assertEquals(color, c.getColor().getPriority());
-			assertEquals(type, c.getType().getPriority());
-			i++;
-		}
-	}
-
-	@Test
-	public void testInitCardDeckOrderingWithComparator() {
-		PriorityCardComparator comparator = new PriorityCardComparator();
-		Card formerCard = cardDeck.nextCard();
-		while (cardDeck.hasCards()) {
-			Card currentCard = cardDeck.nextCard();
-			assertEquals(1, comparator.compare(formerCard, currentCard));
-			formerCard = currentCard;
-		}
-	}
+    @Test
+    public void testInitSomeCards() {
+	assertEquals(FrenchType.ACE, cardDeck.nextCard().getType());
+	assertEquals(FrenchType.KING, cardDeck.nextCard().getType());
+	assertEquals(FrenchColor.CLUB, cardDeck.nextCard().getColor());
+	cardDeck.nextCard();
+	cardDeck.nextCard();
+	cardDeck.nextCard();
+	cardDeck.nextCard();
+	cardDeck.nextCard();
+	assertEquals(FrenchColor.DIAMOND, cardDeck.nextCard().getColor());
+    }
 }

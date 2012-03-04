@@ -9,11 +9,11 @@ import de.unitude.notrick.cards.deck.FrenchColor;
 
 public class CardTest {
 
-	@Test
-	public void testGetName() {
-		Card c = new Card(FrenchColor.CLUB, FrenchType.ACE);
-		assertEquals(0, c.getColor().getPriority());
-		assertEquals(0, c.getType().getPriority());
-	}
+    @Test
+    public void testGetName() {
+	Card c = new Card(FrenchColor.CLUB, FrenchType.ACE);
+	assertEquals(0, c.getColor().getPriority());
+	assertEquals(0, c.getType().getPriority());
+    }
 
 }

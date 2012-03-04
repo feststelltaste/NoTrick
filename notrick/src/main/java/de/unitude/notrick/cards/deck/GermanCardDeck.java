@@ -5,19 +5,19 @@ import de.unitude.notrick.cards.card.color.GermanColor;
 import de.unitude.notrick.cards.card.type.GermanType;
 
 public class GermanCardDeck extends StandardCardDeck {
-	
-	private static final int DECK_SIZE = 32;
-	
-	public GermanCardDeck() {
-		super(DECK_SIZE);
-	}
 
-	@Override
-	protected void init() {
-		for (GermanColor color : GermanColor.values()) {
-			for (GermanType type : GermanType.values()) {
-				cards.add(new Card(color, type));
-			}
-		}
+    private static final int DECK_SIZE = 32;
+
+    public GermanCardDeck() {
+	super(DECK_SIZE);
+    }
+
+    @Override
+    protected void init() {
+	for (GermanColor color : GermanColor.values()) {
+	    for (GermanType type : GermanType.values()) {
+		cards.add(new Card(color, type));
+	    }
 	}
+    }
 }

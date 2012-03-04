@@ -6,12 +6,12 @@ import de.unitude.notrick.cards.card.Card;
 
 public interface CardDeck {
 
-	public boolean hasCards();
+    public List<Card> getAsList();
 
-	public Card nextCard();
+    public int getDeckSize();
 
-	public List<Card> getAsList();
+    public boolean hasCards();
 
-	public int getDeckSize();
+    public Card nextCard();
 
 }

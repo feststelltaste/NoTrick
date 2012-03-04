@@ -14,6 +14,6 @@ import de.unitude.notrick.cards.deck.CardDeck;
 
 public interface Shuffler {
 
-	public CardDeck shuffleCards();
+    public CardDeck shuffleCards();
 
 }

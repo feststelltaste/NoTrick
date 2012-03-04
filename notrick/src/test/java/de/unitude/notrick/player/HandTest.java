@@ -12,25 +12,25 @@ import de.unitude.notrick.cards.deck.CardDeck;
 import de.unitude.notrick.cards.deck.GermanCardDeck;
 
 public class HandTest {
-	
-	Hand hand;
-	int handSize = 4;
-	CardDeck cardDeck;
-	@Before
-	public void setUp(){
-		cardDeck = new GermanCardDeck();
-		hand = new Hand(handSize);
-	}
 
-	@Test
-	public void testAdd()
-	{
-		hand.add( new Card(GermanColor.HERZ, GermanType.ASS));
-		hand.add( new Card(GermanColor.GRUEN, GermanType.ASS));
-		hand.add( new Card(GermanColor.SCHELLEN, GermanType.ASS));
-		hand.add( new Card(GermanColor.EICHEL, GermanType.ASS));
-		Card lastCardOfFirstColor = hand.getAllCards().get(handSize-1);
-		assertEquals(GermanColor.SCHELLEN,lastCardOfFirstColor.getColor());
-	}
+    Hand hand;
+    int handSize = 4;
+    CardDeck cardDeck;
+
+    @Before
+    public void setUp() {
+	cardDeck = new GermanCardDeck();
+	hand = new Hand(handSize);
+    }
+
+    @Test
+    public void testAdd() {
+	hand.add(new Card(GermanColor.HERZ, GermanType.ASS));
+	hand.add(new Card(GermanColor.GRUEN, GermanType.ASS));
+	hand.add(new Card(GermanColor.SCHELLEN, GermanType.ASS));
+	hand.add(new Card(GermanColor.EICHEL, GermanType.ASS));
+	Card lastCardOfFirstColor = hand.getAllCards().get(handSize - 1);
+	assertEquals(GermanColor.SCHELLEN, lastCardOfFirstColor.getColor());
+    }
 
 }
