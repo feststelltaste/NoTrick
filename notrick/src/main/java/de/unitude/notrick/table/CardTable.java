@@ -1,13 +1,19 @@
 package de.unitude.notrick.table;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
 
-public interface CardTable {
+public class CardTable {
 
-    void add(Card card);
+    List<Card> cardsOnTable = new ArrayList<Card>();
 
-    List<Card> get();
+    public void add(Card card) {
+	cardsOnTable.add(card);
+    }
 
+    public List<Card> get() {
+	return cardsOnTable;
+    }
 }

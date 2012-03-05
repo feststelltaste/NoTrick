@@ -14,7 +14,6 @@ import de.unitude.notrick.cards.card.type.FrenchType;
 import de.unitude.notrick.cards.deck.FrenchColor;
 import de.unitude.notrick.cards.deck.FrenchShortCardDeck;
 import de.unitude.notrick.table.CardTable;
-import de.unitude.notrick.table.LinearCardTable;
 
 public class MustBeCardTypeNeighbourTest {
 
@@ -27,7 +26,7 @@ public class MustBeCardTypeNeighbourTest {
 	FrenchShortCardDeck f = new FrenchShortCardDeck();
 	cardsOnHand.add(f.nextCard()); // ACE
 	cardsOnHand.add(f.nextCard()); // KING
-	c = new LinearCardTable();
+	c = new CardTable();
 	c.add(f.nextCard()); // QUEEN
 	m = new MustBeCardTypeNeighbour(cardsOnHand);
     }
@@ -41,7 +40,7 @@ public class MustBeCardTypeNeighbourTest {
     @Test
     public void testGetPlayableCardsCardTableWithGapBetweenCards() {
 	Card ace = new Card(FrenchColor.CLUB, FrenchType.ACE);
-	c = new LinearCardTable();
+	c = new CardTable();
 	c.add(ace);
 	List<Card> cardsOnHand = new ArrayList<Card>();
 	Card queen = new Card(FrenchColor.CLUB, FrenchType.QUEEN);

@@ -10,7 +10,6 @@ import de.unitude.notrick.cards.card.color.Color;
 import de.unitude.notrick.cards.card.color.DifferentCardColorsException;
 import de.unitude.notrick.cards.sorting.PriorityCardComparator;
 import de.unitude.notrick.table.CardTable;
-import de.unitude.notrick.table.MatrixCardTable;
 
 public class MustBeCardTypeNeighbour implements Rule {
 
@@ -23,25 +22,11 @@ public class MustBeCardTypeNeighbour implements Rule {
 
     @Override
     public List<Card> getPlayableCards(CardTable c) {
+
 	List<Card> playableCards;
-	if (c instanceof MatrixCardTable) {
-	    MatrixCardTable m = (MatrixCardTable) c;
-	    playableCards = filterMatrixCardTable(m);
-	} else {
-	    playableCards = filterCardTable(c);
-	}
-	return playableCards;
-    }
 
-    private List<Card> filterMatrixCardTable(MatrixCardTable m) {
-	return null;
-    }
-
-    private List<Card> filterCardTable(CardTable c) {
 	List<Card> cardRow = c.get();
-
-	List<Card> playableCards;
-
+	
 	if (!isExistingCardRow(cardRow)) {
 	    playableCards = cardsOnHand;
 	} else {
@@ -107,7 +92,7 @@ public class MustBeCardTypeNeighbour implements Rule {
 	return immediateNeighbours;
     }
 
-    Color colorOfRow(List<Card> cards) {
+    private Color colorOfRow(List<Card> cards) {
 	Color colorOfFirstCard = cards.get(0).getColor();
 	for (Card card : cards) {
 	    if (card.getColor() != colorOfFirstCard) {
