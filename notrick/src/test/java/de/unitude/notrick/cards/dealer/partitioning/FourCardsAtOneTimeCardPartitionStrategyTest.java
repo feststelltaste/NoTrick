@@ -10,10 +10,10 @@ import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
 import de.unitude.notrick.cards.card.color.GermanColor;
-import de.unitude.notrick.cards.card.color.Hand;
 import de.unitude.notrick.cards.card.type.GermanType;
 import de.unitude.notrick.cards.deck.CardDeck;
 import de.unitude.notrick.cards.deck.GermanCardDeck;
+import de.unitude.notrick.player.Hand;
 
 public class FourCardsAtOneTimeCardPartitionStrategyTest {
 

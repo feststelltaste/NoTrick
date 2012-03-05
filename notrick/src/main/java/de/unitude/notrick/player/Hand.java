@@ -1,4 +1,4 @@
-package de.unitude.notrick.cards.card.color;
+package de.unitude.notrick.player;
 
 import java.util.ArrayList;
 import java.util.List;

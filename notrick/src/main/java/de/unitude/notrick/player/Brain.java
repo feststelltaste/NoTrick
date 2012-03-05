@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.Hand;
 import de.unitude.notrick.rules.MustPlaySameColorAsFirstCardRule;
 import de.unitude.notrick.table.CardTable;
 

@@ -3,7 +3,6 @@ package de.unitude.notrick.player;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.Hand;
 
 public class Player {
 
