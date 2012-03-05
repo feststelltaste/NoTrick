@@ -1,10 +1,14 @@
-package de.unitude.notrick.cards.dealing;
+package de.unitude.notrick.cards.dealer.dealing;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import de.unitude.notrick.cards.card.color.Hand;
+import de.unitude.notrick.cards.dealer.CardDealingStrategy;
+import de.unitude.notrick.cards.dealer.Dealer;
+import de.unitude.notrick.cards.dealer.partitioning.CardPartitionStrategy;
+import de.unitude.notrick.cards.dealer.partitioning.FourCardsAtOneTimeCardPartitionStrategy;
 import de.unitude.notrick.cards.deck.CardDeck;
-import de.unitude.notrick.player.Hand;
 import de.unitude.notrick.player.Player;
 
 public class FourCardsAtOnceAfterAnotherDealer implements Dealer {

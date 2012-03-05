@@ -1,4 +1,4 @@
-package de.unitude.notrick.player;
+package de.unitude.notrick.cards.card.color;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.GermanColor;
 import de.unitude.notrick.cards.card.type.GermanType;
 import de.unitude.notrick.cards.deck.CardDeck;
 import de.unitude.notrick.cards.deck.GermanCardDeck;

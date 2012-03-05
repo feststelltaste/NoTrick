@@ -1,4 +1,4 @@
-package de.unitude.notrick.cards.dealing;
+package de.unitude.notrick.cards.dealer;
 
 public interface Dealer {
 

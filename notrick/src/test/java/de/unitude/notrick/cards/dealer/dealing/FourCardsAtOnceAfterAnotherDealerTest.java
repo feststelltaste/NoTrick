@@ -1,4 +1,4 @@
-package de.unitude.notrick.cards.dealing;
+package de.unitude.notrick.cards.dealer.dealing;
 
 import static org.junit.Assert.assertEquals;
 

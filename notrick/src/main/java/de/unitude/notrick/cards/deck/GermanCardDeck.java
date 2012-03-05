@@ -1,8 +1,13 @@
 package de.unitude.notrick.cards.deck;
 
+import java.util.Arrays;
+import java.util.List;
+
 import de.unitude.notrick.cards.card.Card;
+import de.unitude.notrick.cards.card.color.Color;
 import de.unitude.notrick.cards.card.color.GermanColor;
 import de.unitude.notrick.cards.card.type.GermanType;
+import de.unitude.notrick.cards.card.type.Type;
 
 public class GermanCardDeck extends StandardCardDeck {
 
@@ -20,4 +25,15 @@ public class GermanCardDeck extends StandardCardDeck {
 	    }
 	}
     }
+
+    @Override
+    public List<? extends Type> getTypes() {
+	return Arrays.asList(GermanType.values());
+    }
+
+    @Override
+    public List<? extends Color> getColors() {
+	return Arrays.asList(GermanColor.values());
+    }
+
 }

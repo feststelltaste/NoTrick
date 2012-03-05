@@ -1,9 +1,10 @@
-package de.unitude.notrick.cards.dealing;
+package de.unitude.notrick.cards.dealer.dealing;
 
 import java.util.Iterator;
 import java.util.List;
 
-import de.unitude.notrick.player.Hand;
+import de.unitude.notrick.cards.card.color.Hand;
+import de.unitude.notrick.cards.dealer.CardDealingStrategy;
 import de.unitude.notrick.player.Player;
 
 public class OneAfterAnotherClockWiseCardDealingStrategy implements

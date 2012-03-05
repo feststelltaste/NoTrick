@@ -1,9 +1,9 @@
-package de.unitude.notrick.cards.dealing;
+package de.unitude.notrick.cards.dealer.partitioning;
 
 import java.util.List;
 
+import de.unitude.notrick.cards.card.color.Hand;
 import de.unitude.notrick.cards.deck.CardDeck;
-import de.unitude.notrick.player.Hand;
 
 public class FourCardsAtOneTimeCardPartitionStrategy implements
 	CardPartitionStrategy {

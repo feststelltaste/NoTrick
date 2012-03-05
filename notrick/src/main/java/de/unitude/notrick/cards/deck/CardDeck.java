@@ -3,15 +3,21 @@ package de.unitude.notrick.cards.deck;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
+import de.unitude.notrick.cards.card.color.Color;
+import de.unitude.notrick.cards.card.type.Type;
 
 public interface CardDeck {
 
-    public List<Card> getAsList();
+    List<Card> getAsList();
 
-    public int getDeckSize();
+    int getDeckSize();
 
-    public boolean hasCards();
+    boolean hasCards();
 
-    public Card nextCard();
+    Card nextCard();
+
+    List<? extends Type> getTypes();
+
+    List<? extends Color> getColors();
 
 }
