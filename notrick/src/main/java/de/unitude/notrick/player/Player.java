@@ -8,12 +8,14 @@ import de.unitude.notrick.cards.card.color.Hand;
 public class Player {
 
     private Hand hand;
+    private String name;
 
     public Player() {
+	name = "Player";
     }
 
-    public Player(String string) {
-	// TODO Auto-generated constructor stub
+    public Player(String name) {
+	this.name = name;
     }
 
     public void memorize(List<Card> cardsFromTable) {
@@ -37,4 +39,7 @@ public class Player {
 	this.hand = hand;
     }
 
+    public String getName(){
+	return name;
+    }
 }
