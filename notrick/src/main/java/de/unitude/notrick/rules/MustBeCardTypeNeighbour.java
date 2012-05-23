@@ -21,11 +21,11 @@ public class MustBeCardTypeNeighbour implements Rule {
     }
 
     @Override
-    public List<Card> getPlayableCards(CardTable c) {
+    public List<Card> getPlayableCards(CardTable cardTable) {
 
 	List<Card> playableCards;
 
-	List<Card> cardRow = c.get();
+	List<Card> cardRow = cardTable.allCards();
 	
 	if (!isExistingCardRow(cardRow)) {
 	    playableCards = cardsOnHand;
