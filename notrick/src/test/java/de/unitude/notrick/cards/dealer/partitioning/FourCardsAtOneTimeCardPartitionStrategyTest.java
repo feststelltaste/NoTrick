@@ -25,11 +25,11 @@ public class FourCardsAtOneTimeCardPartitionStrategyTest {
     public void testNextPart() {
 	List<Card> firstPart = sut.nextPart();
 	List<Card> lastPart = null;
-	while(sut.hasCards())
-		lastPart = sut.nextPart();
+	while (sut.hasCards())
+	    lastPart = sut.nextPart();
 
 	assertEquals(4, firstPart.size());
-	Card lastCardOfLastPlayer = lastPart.get(lastPart.size()-1);
+	Card lastCardOfLastPlayer = lastPart.get(lastPart.size() - 1);
 	assertEquals(GermanColor.SCHELLEN, lastCardOfLastPlayer.getColor());
 	assertEquals(GermanType.SIEBNER, lastCardOfLastPlayer.getType());
     }

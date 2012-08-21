@@ -36,7 +36,6 @@ public class MustPlaySameColorIfAvailableRule implements Rule {
 	return playableCards;
     }
 
-
     private boolean isCardAlreadyPlayed(List<Card> cardsOnTable) {
 	return cardsOnTable != null && !cardsOnTable.isEmpty();
     }
@@ -44,14 +43,13 @@ public class MustPlaySameColorIfAvailableRule implements Rule {
     private Color colorOfFirstPlayedCard(CardTable cardTable) {
 	return cardTable.card(0).getColor();
     }
-    
+
     private List<Card> cardsOfSameColor(Color colorOnTable) {
-	return cardColorUtils.filterCardsByColor(colorOnTable,
-		cardsOnHand);
+	return CardColorUtils.filterCardsByColor(colorOnTable, cardsOnHand);
     }
 
     private boolean isColorOnHand(Color colorOfFirstCard) {
-	return cardColorUtils.hasCurrentColor(colorOfFirstCard, cardsOnHand);
+	return CardColorUtils.hasCurrentColor(colorOfFirstCard, cardsOnHand);
     }
 
     private List<Card> allCardsOnHand() {

@@ -40,16 +40,16 @@ public abstract class StandardCardDeck implements CardDeck {
     public Card nextCard() {
 	return iterator.next();
     }
-    
+
     @Override
     public List<Card> nextCards(int numberOfCards) {
-        int counter = 0;
-        List<Card> returnedCards = new ArrayList<Card>();
-	while(iterator.hasNext() && numberOfCards > counter){
+	int counter = 0;
+	List<Card> returnedCards = new ArrayList<Card>();
+	while (iterator.hasNext() && numberOfCards > counter) {
 	    returnedCards.add(iterator.next());
 	    counter++;
 	}
-        return returnedCards;
+	return returnedCards;
     }
 
 }

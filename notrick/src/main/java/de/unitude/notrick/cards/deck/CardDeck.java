@@ -15,7 +15,7 @@ public interface CardDeck {
     boolean hasCards();
 
     Card nextCard();
-    
+
     List<Card> nextCards(int numberOfCards);
 
     List<? extends Type> getTypes();

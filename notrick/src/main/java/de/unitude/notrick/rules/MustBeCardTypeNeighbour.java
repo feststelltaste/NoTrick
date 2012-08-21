@@ -26,7 +26,7 @@ public class MustBeCardTypeNeighbour implements Rule {
 	List<Card> playableCards;
 
 	List<Card> cardRow = cardTable.allCards();
-	
+
 	if (!isExistingCardRow(cardRow)) {
 	    playableCards = cardsOnHand;
 	} else {
@@ -45,20 +45,16 @@ public class MustBeCardTypeNeighbour implements Rule {
 	List<Card> neighbours;
 
 	Color currentColor = colorOfRow(cardRow);
-	List<Card> cardsWithSameColor = cardColorUtils.filterCardsByColor(
-		currentColor, this.cardsOnHand);
+	List<Card> cardsWithSameColor = CardColorUtils.filterCardsByColor(currentColor, this.cardsOnHand);
 	if (cardsWithSameColor.isEmpty()) {
 	    neighbours = new ArrayList<Card>();
 	} else {
 
 	    Collections.sort(cardRow, new PriorityCardComparator());
-	    int highestCardTypePriority = cardRow.get(0).getType()
-		    .getPriority();
-	    int lowestCardTypeOfRow = cardRow.get(cardRow.size() - 1).getType()
-		    .getPriority();
+	    int highestCardTypePriority = cardRow.get(0).getType().getPriority();
+	    int lowestCardTypeOfRow = cardRow.get(cardRow.size() - 1).getType().getPriority();
 
-	    neighbours = getImmediateNeighbours(cardsWithSameColor,
-		    highestCardTypePriority, lowestCardTypeOfRow);
+	    neighbours = getImmediateNeighbours(cardsWithSameColor, highestCardTypePriority, lowestCardTypeOfRow);
 
 	}
 
@@ -66,8 +62,7 @@ public class MustBeCardTypeNeighbour implements Rule {
 
     }
 
-    List<Card> getImmediateNeighbours(List<Card> cardsWithSameColor,
-	    int highestPriority, int lowestPriority) {
+    List<Card> getImmediateNeighbours(List<Card> cardsWithSameColor, int highestPriority, int lowestPriority) {
 	List<Card> immediateNeighbours = new ArrayList<Card>(2);
 
 	Card lowestNeighbour = null;

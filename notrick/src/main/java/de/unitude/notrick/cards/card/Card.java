@@ -27,8 +27,7 @@ public class Card {
 
     @Override
     public String toString() {
-	return (type.getPriority() + color.getPriority() * 8) + 1 + ": "
-		+ getName();
+	return (type.getPriority() + color.getPriority() * 8) + 1 + ": " + getName();
     }
 
 }

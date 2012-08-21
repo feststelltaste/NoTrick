@@ -27,7 +27,8 @@ public class OneAfterAnotherClockWiseCardDealingStrategyTest {
 	FrenchShortCardDeck f = new FrenchShortCardDeck();
 
 	CardPartitionStrategy cardPartitioning = new SpecificNumberOfCardsAtOneTimePartitionStrategy(f, 1);
-	OneAfterAnotherClockWiseCardDealingStrategy dealingStrategy = new OneAfterAnotherClockWiseCardDealingStrategy(players, cardPartitioning );
+	OneAfterAnotherClockWiseCardDealingStrategy dealingStrategy = new OneAfterAnotherClockWiseCardDealingStrategy(
+		players, cardPartitioning);
 	dealingStrategy.deal();
 
 	assertEquals(FrenchType.ACE, firstPlayer.showCards().get(0).getType());

@@ -15,8 +15,7 @@ public class Brain {
 
     public Brain(Hand hand) {
 	this.hand = hand;
-	this.noTrickRules = new MustPlaySameColorIfAvailableRule(
-		hand.getAllCards());
+	this.noTrickRules = new MustPlaySameColorIfAvailableRule(hand.getAllCards());
     }
 
     Card decide(CardTable cardTable) {

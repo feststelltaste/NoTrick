@@ -5,8 +5,7 @@ import java.util.List;
 import de.unitude.notrick.cards.card.Card;
 import de.unitude.notrick.cards.deck.CardDeck;
 
-public class SpecificNumberOfCardsAtOneTimePartitionStrategy implements
-	CardPartitionStrategy {
+public class SpecificNumberOfCardsAtOneTimePartitionStrategy implements CardPartitionStrategy {
 
     private CardDeck cardDeck;
     private int numberOfCardsToPartition;

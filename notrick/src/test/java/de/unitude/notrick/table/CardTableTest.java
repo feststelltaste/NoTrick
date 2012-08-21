@@ -14,7 +14,7 @@ import de.unitude.notrick.cards.card.type.GermanType;
 import de.unitude.notrick.cards.deck.FrenchColor;
 
 public class CardTableTest {
-    
+
     CardTable c;
 
     @Before
@@ -24,32 +24,30 @@ public class CardTableTest {
 
     @Test
     public void testAddNull() {
-	try{
+	try {
 	    c.add(null);
 	    fail();
-	}
-	catch (CardNonExistingException e){
+	} catch (CardNonExistingException e) {
 	    // expected
 	}
     }
-    
+
     @Test
     public void testAddDifferentCardSetTypes() {
-	try{
+	try {
 	    c.add(new Card(FrenchColor.CLUB, FrenchType.ACE));
 	    c.add(new Card(GermanColor.GRUEN, GermanType.ASS));
 	    fail();
-	}
-	catch (DifferentCardColorsException e){
+	} catch (DifferentCardColorsException e) {
 	    // expected
 	}
     }
-    
+
     @Test
     public void testAdd() {
 	Card frenchClubAce = new Card(FrenchColor.CLUB, FrenchType.ACE);
 	c.add(frenchClubAce);
-	assertEquals(frenchClubAce,c.card(0));
+	assertEquals(frenchClubAce, c.card(0));
     }
 
     @Test
@@ -60,10 +58,9 @@ public class CardTableTest {
 
     @Test
     public void testCardNonExising() {
-	try{
+	try {
 	    c.card(0);
-	}
-	catch(CardNonExistingException e){
+	} catch (CardNonExistingException e) {
 	    // expected
 	}
     }

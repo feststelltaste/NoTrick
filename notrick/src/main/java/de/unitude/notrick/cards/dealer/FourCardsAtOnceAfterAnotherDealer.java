@@ -14,16 +14,14 @@ public class FourCardsAtOnceAfterAnotherDealer implements Dealer {
     private CardDeck cardDeck;
     private List<Player> players;
 
-    public FourCardsAtOnceAfterAnotherDealer(CardDeck cardDeck,
-	    List<Player> players) {
+    public FourCardsAtOnceAfterAnotherDealer(CardDeck cardDeck, List<Player> players) {
 	this.cardDeck = cardDeck;
 	this.players = players;
     }
 
     @Override
     public void deal() {
-	CardPartitionStrategy cardPartitioning = new SpecificNumberOfCardsAtOneTimePartitionStrategy(
-		cardDeck, 4);
+	CardPartitionStrategy cardPartitioning = new SpecificNumberOfCardsAtOneTimePartitionStrategy(cardDeck, 4);
 	CardDealingStrategy dealingStrategy = new OneAfterAnotherClockWiseCardDealingStrategy(players, cardPartitioning);
 	dealingStrategy.deal();
 
