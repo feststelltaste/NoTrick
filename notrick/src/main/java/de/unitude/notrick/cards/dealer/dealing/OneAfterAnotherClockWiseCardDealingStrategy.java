@@ -1,31 +1,36 @@
 package de.unitude.notrick.cards.dealer.dealing;
 
-import java.util.Iterator;
 import java.util.List;
 
-import de.unitude.notrick.cards.dealer.CardDealingStrategy;
-import de.unitude.notrick.player.Hand;
+import de.unitude.notrick.cards.dealer.partitioning.CardPartitionStrategy;
 import de.unitude.notrick.player.Player;
 
 public class OneAfterAnotherClockWiseCardDealingStrategy implements
 	CardDealingStrategy {
 
-    private List<Hand> hands;
     private List<Player> players;
+    private int counter;
+    private CardPartitionStrategy cardPartitioning;
 
-    public OneAfterAnotherClockWiseCardDealingStrategy(List<Hand> hands,
-	    List<Player> players) {
-	this.hands = hands;
+    public OneAfterAnotherClockWiseCardDealingStrategy(List<Player> players, CardPartitionStrategy cardPartitioning) {
 	this.players = players;
+	this.cardPartitioning = cardPartitioning;
     }
 
     @Override
     public void deal() {
-	Iterator<Hand> handsIterator = hands.iterator();
-
-	for (Player player : players) {
-	    player.take(handsIterator.next());
+	counter = 0;
+	while(cardPartitioning.hasCards()){
+	    nextPlayer().take(cardPartitioning.nextPart());
 	}
     }
+
+    private Player nextPlayer() {
+	Player nextPlayer = players.get(counter % players.size());
+	counter++;
+	return nextPlayer;
+    }
+    
+    
 
 }

@@ -1,4 +1,4 @@
-package de.unitude.notrick.cards.dealer.dealing;
+package de.unitude.notrick.cards.dealer;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.unitude.notrick.cards.card.type.FrenchType;
+import de.unitude.notrick.cards.dealer.FourCardsAtOnceAfterAnotherDealer;
 import de.unitude.notrick.cards.deck.CardDeck;
 import de.unitude.notrick.cards.deck.FrenchShortCardDeck;
 import de.unitude.notrick.player.Player;

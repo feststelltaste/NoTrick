@@ -1,5 +1,6 @@
 package de.unitude.notrick.player;
 
+import java.util.Collection;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
@@ -10,11 +11,16 @@ public class Player {
     private String name;
 
     public Player() {
-	name = "Player";
+	this("Player");
     }
 
     public Player(String name) {
+	this(name, new Hand(8));
+    }
+
+    public Player(String name, Hand hand) {
 	this.name = name;
+	this.hand = hand;
     }
 
     public void memorize(List<Card> cardsFromTable) {
@@ -34,11 +40,15 @@ public class Player {
 	return hand.getAllCards();
     }
 
-    public void take(Hand hand) {
-	this.hand = hand;
+    public void take(Collection<Card> cards) {
+	this.hand.getAllCards().addAll(cards);
     }
 
-    public String getName(){
+    public void take(Card card) {
+	this.hand.add(card);
+    }
+
+    public String getName() {
 	return name;
     }
 }
