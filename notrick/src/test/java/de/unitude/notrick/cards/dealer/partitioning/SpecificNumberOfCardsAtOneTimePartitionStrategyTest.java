@@ -12,13 +12,14 @@ import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.card.type.GermanType;
 import de.unitude.notrick.cards.deck.GermanCardDeck;
 
-public class FourCardsAtOneTimeCardPartitionStrategyTest {
+public class SpecificNumberOfCardsAtOneTimePartitionStrategyTest {
 
+    private static final int FOUR_CARDS = 4;
     SpecificNumberOfCardsAtOneTimePartitionStrategy sut;
 
     @Before
     public void setUp() throws Exception {
-	sut = new SpecificNumberOfCardsAtOneTimePartitionStrategy(new GermanCardDeck(), 4);
+	sut = new SpecificNumberOfCardsAtOneTimePartitionStrategy(new GermanCardDeck(), FOUR_CARDS);
     }
 
     @Test
