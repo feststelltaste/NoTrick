@@ -7,13 +7,12 @@ import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.suit.FrenchSuit;
 import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
-import de.feststelltaste.notrick.api.cards.deck.FrenchShortCardDeck;
 
 public class FrenchShortCardDeckTest extends StandardCardDeckTest {
 
     @Before
     public void setUp() throws Exception {
-	cardDeck = new FrenchShortCardDeck();
+	super.cardDeck = new FrenchShortCardDeck();
     }
 
     @Test

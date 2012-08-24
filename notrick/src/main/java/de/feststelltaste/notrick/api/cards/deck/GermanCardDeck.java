@@ -14,7 +14,7 @@ public class GermanCardDeck extends StandardCardDeck {
     protected void init() {
 	for (GermanSuit suit : GermanSuit.values()) {
 	    for (GermanType type : GermanType.values()) {
-		cards.add(new Card(suit, type));
+		super.cards.add(new Card(suit, type));
 	    }
 	}
     }

@@ -17,11 +17,10 @@ public class FrenchShortCardDeck extends StandardCardDeck {
 	for (FrenchSuit suit : FrenchSuit.values()) {
 	    for (FrenchType type : FrenchType.values()) {
 		if (type.getPriority() < FrenchType.SIX.getPriority()) {
-		    cards.add(new Card(suit, type));
+		    super.cards.add(new Card(suit, type));
 		}
 	    }
 	}
-	iterator = cards.iterator();
     }
 
     @Override
