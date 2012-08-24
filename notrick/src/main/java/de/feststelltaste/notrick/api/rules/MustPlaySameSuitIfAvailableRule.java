@@ -5,6 +5,7 @@ import java.util.List;
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.suit.CardSuitUtils;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
+import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
 import de.feststelltaste.notrick.api.table.CardTable;
 
 public class MustPlaySameSuitIfAvailableRule implements Rule {
@@ -44,7 +45,7 @@ public class MustPlaySameSuitIfAvailableRule implements Rule {
     }
 
     private List<Card> cardsOfSameSuit(Suit suitOnTable) {
-	return CardSuitUtils.filterCardsBySuit(suitOnTable, cardsOnHand);
+	return SuitFilter.same(suitOnTable, cardsOnHand);
     }
 
     private boolean isSuitOnHand(Suit suitOfFirstCard) {

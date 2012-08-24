@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
-import de.feststelltaste.notrick.api.cards.card.suit.CardSuitUtils;
 import de.feststelltaste.notrick.api.cards.card.suit.DifferentCardSuitException;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
+import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
 import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
 import de.feststelltaste.notrick.api.table.CardTable;
 
@@ -43,7 +43,7 @@ public class MustBeCardTypeNeighbour implements Rule {
 	List<Card> neighbours;
 
 	Suit currentSuit = suitOfRow(cardRow);
-	List<Card> cardsWithSameSuit = CardSuitUtils.filterCardsBySuit(currentSuit, this.cardsOnHand);
+	List<Card> cardsWithSameSuit = SuitFilter.same(currentSuit, this.cardsOnHand);
 	if (cardsWithSameSuit.isEmpty()) {
 	    neighbours = new ArrayList<Card>();
 	} else {
