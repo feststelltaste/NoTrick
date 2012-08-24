@@ -14,15 +14,14 @@ public class FrenchCardDeck extends StandardCardDeck {
     protected void init() {
 	for (FrenchSuit suit : FrenchSuit.values()) {
 	    for (FrenchType type : FrenchType.values()) {
-		cards.add(new Card(suit, type));
+		super.cards.add(new Card(suit, type));
 	    }
 	}
-	iterator = cards.iterator();
     }
 
     @Override
     public int numberOfTypes() {
-	return FrenchSuit.values().length;
+	return FrenchType.values().length;
     }
 
     @Override
