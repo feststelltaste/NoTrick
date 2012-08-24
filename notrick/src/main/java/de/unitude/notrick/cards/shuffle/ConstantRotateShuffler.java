@@ -4,18 +4,22 @@ import java.util.Collections;
 
 import de.unitude.notrick.cards.deck.CardDeck;
 
-public class RotateShuffler implements Shuffler {
+public class ConstantRotateShuffler implements Shuffler {
 
     private CardDeck cardDeck;
 
-    public RotateShuffler(CardDeck cardDeck) {
+    public ConstantRotateShuffler(CardDeck cardDeck) {
 	this.cardDeck = cardDeck;
     }
 
     @Override
     public CardDeck shuffleCards() {
-	Collections.rotate(cardDeck.getAsList(), -8);
+	Collections.rotate(cardDeck.getAsList(), -distanceToNextType());
 	return cardDeck;
+    }
+
+    private int distanceToNextType() {
+	return cardDeck.getTypes().size();
     }
 
 }
