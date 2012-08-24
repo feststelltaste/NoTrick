@@ -8,10 +8,10 @@ import org.junit.Test;
 import de.unitude.notrick.cards.card.Card;
 import de.unitude.notrick.cards.card.CardNonExistingException;
 import de.unitude.notrick.cards.card.suit.DifferentCardSuitException;
+import de.unitude.notrick.cards.card.suit.FrenchSuit;
 import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.card.type.FrenchType;
 import de.unitude.notrick.cards.card.type.GermanType;
-import de.unitude.notrick.cards.deck.FrenchSuit;
 
 public class CardTableTest {
 

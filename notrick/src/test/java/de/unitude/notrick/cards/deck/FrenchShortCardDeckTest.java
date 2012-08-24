@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.unitude.notrick.cards.card.suit.FrenchSuit;
 import de.unitude.notrick.cards.card.type.FrenchType;
 
 public class FrenchShortCardDeckTest extends StandardCardDeckTest{

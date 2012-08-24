@@ -10,8 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
+import de.unitude.notrick.cards.card.suit.FrenchSuit;
 import de.unitude.notrick.cards.card.type.FrenchType;
-import de.unitude.notrick.cards.deck.FrenchSuit;
 import de.unitude.notrick.cards.deck.FrenchShortCardDeck;
 import de.unitude.notrick.table.CardTable;
 

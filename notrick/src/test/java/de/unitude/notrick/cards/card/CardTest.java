@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import de.unitude.notrick.cards.card.suit.FrenchSuit;
 import de.unitude.notrick.cards.card.type.FrenchType;
-import de.unitude.notrick.cards.deck.FrenchSuit;
 
 public class CardTest {
 

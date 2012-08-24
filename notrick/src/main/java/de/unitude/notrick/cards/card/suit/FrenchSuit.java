@@ -1,6 +1,5 @@
-package de.unitude.notrick.cards.deck;
+package de.unitude.notrick.cards.card.suit;
 
-import de.unitude.notrick.cards.card.suit.Suit;
 
 public enum FrenchSuit implements Suit {
 

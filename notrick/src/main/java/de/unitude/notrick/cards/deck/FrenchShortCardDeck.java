@@ -1,6 +1,7 @@
 package de.unitude.notrick.cards.deck;
 
 import de.unitude.notrick.cards.card.Card;
+import de.unitude.notrick.cards.card.suit.FrenchSuit;
 import de.unitude.notrick.cards.card.type.FrenchType;
 
 public class FrenchShortCardDeck extends StandardCardDeck {
