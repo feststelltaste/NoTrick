@@ -3,7 +3,7 @@ package de.feststelltaste.notrick.api.rules;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
-import de.feststelltaste.notrick.api.cards.card.suit.CardSuitUtils;
+import de.feststelltaste.notrick.api.cards.card.suit.SuitInspector;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
 import de.feststelltaste.notrick.api.table.CardTable;
@@ -49,7 +49,7 @@ public class MustPlaySameSuitIfAvailableRule implements Rule {
     }
 
     private boolean isSuitOnHand(Suit suitOfFirstCard) {
-	return CardSuitUtils.hasCurrentSuit(suitOfFirstCard, cardsOnHand);
+	return SuitInspector.hasSuit(suitOfFirstCard, cardsOnHand);
     }
 
     private List<Card> allCardsOnHand() {

@@ -4,9 +4,9 @@ import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 
-public class CardSuitUtils {
+public class SuitInspector {
 
-    public static boolean hasCurrentSuit(Suit suit, List<Card> cards) {
+    public static boolean hasSuit(Suit suit, List<Card> cards) {
 	return !SuitFilter.same(suit, cards).isEmpty();
     }
 
