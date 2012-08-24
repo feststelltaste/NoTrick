@@ -17,10 +17,10 @@ import org.junit.Test;
 
 import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.deck.GermanCardDeck;
-import de.unitude.notrick.cards.shuffle.ConstantRotateShuffler;
+import de.unitude.notrick.cards.shuffle.RotateShuffler;
 import de.unitude.notrick.cards.shuffle.Shuffler;
 
-public class ConstantRotateShufflerTest {
+public class RotateShufflerTest {
 
     @Before
     public void setUp() throws Exception {
@@ -29,7 +29,7 @@ public class ConstantRotateShufflerTest {
     @Test
     public void testRandomShuffler() {
 	GermanCardDeck g = new GermanCardDeck();
-	Shuffler r = new ConstantRotateShuffler(g);
+	Shuffler r = new RotateShuffler(g);
 	r.shuffleCards();
 	assertEquals(GermanSuit.GRUEN, g.nextCard().getSuit());
     }
