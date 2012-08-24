@@ -9,7 +9,7 @@ import de.unitude.notrick.cards.sorting.CardSorter;
 public class Hand {
 
     private int maxCardsOnHand;
-    private List<Card> cardsOnHand = new ArrayList<Card>(maxCardsOnHand);
+    private List<Card> cardsOnHand = new ArrayList<Card>();
 
     public Hand(int maxCardsOnHand) {
 	this.maxCardsOnHand = maxCardsOnHand;

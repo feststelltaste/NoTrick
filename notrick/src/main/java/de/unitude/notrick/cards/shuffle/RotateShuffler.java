@@ -1,13 +1,3 @@
-/**
- * update test bla
- * test2
- */
-/**
- * update test run
- */
-/**
- * test
- */
 package de.unitude.notrick.cards.shuffle;
 
 import java.util.Collections;

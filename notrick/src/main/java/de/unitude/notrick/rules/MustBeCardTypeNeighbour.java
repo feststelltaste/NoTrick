@@ -36,8 +36,7 @@ public class MustBeCardTypeNeighbour implements Rule {
     }
 
     private boolean isExistingCardRow(List<Card> cardRow) {
-	boolean isExistingCardRow = cardRow != null && !cardRow.isEmpty();
-	return isExistingCardRow;
+	return cardRow != null && !cardRow.isEmpty();
     }
 
     private List<Card> getNeigbours(List<Card> cardRow) {
@@ -78,10 +77,12 @@ public class MustBeCardTypeNeighbour implements Rule {
 	    }
 	}
 
-	if (lowestNeighbour != null)
+	if (lowestNeighbour != null) {
 	    immediateNeighbours.add(lowestNeighbour);
-	if (highestNeighbour != null)
+	}
+	if (highestNeighbour != null) {
 	    immediateNeighbours.add(highestNeighbour);
+	}
 
 	return immediateNeighbours;
     }

@@ -9,24 +9,21 @@ import de.unitude.notrick.table.CardTable;
 
 public class Brain {
 
-    private Hand hand;
-    private MustPlaySameSuitIfAvailableRule noTrickRules;
+    private MustPlaySameSuitIfAvailableRule noTrickRule;
     private List<Card> playedCards = new ArrayList<Card>();
 
     public Brain(Hand hand) {
-	this.hand = hand;
-	this.noTrickRules = new MustPlaySameSuitIfAvailableRule(hand.getAllCards());
+	this.noTrickRule = new MustPlaySameSuitIfAvailableRule(hand.getAllCards());
     }
 
     Card decide(CardTable cardTable) {
-	List<Card> playableCards = noTrickRules.getPlayableCards(cardTable);
+	List<Card> playableCards = noTrickRule.getPlayableCards(cardTable);
 	Card firstCard = playableCards.get(0);
 	return firstCard;
     }
 
     void memorize(List<Card> currentCards) {
 	playedCards.addAll(currentCards);
-
     }
 
 }
