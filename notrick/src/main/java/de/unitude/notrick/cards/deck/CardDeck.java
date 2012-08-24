@@ -3,8 +3,6 @@ package de.unitude.notrick.cards.deck;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.suit.Suit;
-import de.unitude.notrick.cards.card.type.Type;
 
 public interface CardDeck {
 
@@ -18,8 +16,8 @@ public interface CardDeck {
 
     List<Card> nextCards(int numberOfCards);
 
-    List<? extends Type> getTypes();
+    int numberOfTypes();
 
-    List<? extends Suit> getSuits();
+    int numberOfSuits();
 
 }

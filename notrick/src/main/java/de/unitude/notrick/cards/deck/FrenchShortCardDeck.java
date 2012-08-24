@@ -1,11 +1,7 @@
 package de.unitude.notrick.cards.deck;
 
-import java.util.List;
-
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.suit.Suit;
 import de.unitude.notrick.cards.card.type.FrenchType;
-import de.unitude.notrick.cards.card.type.Type;
 
 public class FrenchShortCardDeck extends StandardCardDeck {
 
@@ -28,14 +24,13 @@ public class FrenchShortCardDeck extends StandardCardDeck {
     }
 
     @Override
-    public List<? extends Type> getTypes() {
-	// TODO Auto-generated method stub
-	return null;
+    public int numberOfTypes() {
+	return DECKSIZE / numberOfSuits();
     }
 
     @Override
-    public List<? extends Suit> getSuits() {
-	// TODO Auto-generated method stub
-	return null;
+    public int numberOfSuits() {
+	return FrenchSuit.values().length;
     }
+
 }

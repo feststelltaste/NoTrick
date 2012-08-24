@@ -13,7 +13,7 @@ public abstract class StandardCardDeckTest {
     protected CardDeck cardDeck;
         
     @Test
-    public void testInitCardDeckConsistency() {
+    public void checkCardDeckConsistency() {
 
 	int i = 0;
 	int suit = 0;
@@ -21,8 +21,10 @@ public abstract class StandardCardDeckTest {
 
 	while (cardDeck.hasCards()) {
 	    Card c = cardDeck.nextCard();
-	    suit = i / cardDeck.getTypes().size();
-	    type = i % cardDeck.getSuits().size();
+	    suit = i / cardDeck.numberOfTypes();
+	    type = i % cardDeck.numberOfTypes();
+	    // for debugging
+	    // System.out.println(suit + ":" + c.getSuit().getPriority() + "|" + type + ":" + c.getType().getPriority() + "- " + cardDeck.numberOfTypes());
 	    assertEquals(suit, c.getSuit().getPriority());
 	    assertEquals(type, c.getType().getPriority());
 	    i++;

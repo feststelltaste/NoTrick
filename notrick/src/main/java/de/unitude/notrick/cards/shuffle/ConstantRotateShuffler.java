@@ -19,7 +19,7 @@ public class ConstantRotateShuffler implements Shuffler {
     }
 
     private int distanceToNextType() {
-	return cardDeck.getTypes().size();
+	return cardDeck.numberOfTypes();
     }
 
 }
