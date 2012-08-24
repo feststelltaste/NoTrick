@@ -1,13 +1,13 @@
-package de.unitude.notrick.cards.card.color;
+package de.unitude.notrick.cards.card.suit;
 
-public enum GermanColor implements Color {
+public enum GermanSuit implements Suit {
 
     EICHEL("Eichel", 0), GRUEN("Grün", 1), HERZ("Herz", 2), SCHELLEN("Schellen", 3);
 
     private String name;
     private int priority;
 
-    private GermanColor(String name, int priority) {
+    private GermanSuit(String name, int priority) {
 	this.name = name;
 	this.priority = priority;
     }

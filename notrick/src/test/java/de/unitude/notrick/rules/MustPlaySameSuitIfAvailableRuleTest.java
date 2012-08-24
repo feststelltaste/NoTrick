@@ -9,23 +9,23 @@ import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
 import de.unitude.notrick.cards.card.type.FrenchType;
-import de.unitude.notrick.cards.deck.FrenchColor;
+import de.unitude.notrick.cards.deck.FrenchSuit;
 import de.unitude.notrick.table.CardTable;
 
-public class MustPlaySameColorIfAvailableRuleTest {
+public class MustPlaySameSuitIfAvailableRuleTest {
 
-    MustPlaySameColorIfAvailableRule m;
+    MustPlaySameSuitIfAvailableRule m;
 
     @Test
     public void testGetPlayableCardsWithNoCardOnCardTable() {
 	List<Card> cardsOnHand = new ArrayList<Card>();
-	Card clubAce = new Card(FrenchColor.CLUB, FrenchType.ACE);
-	Card diamondAce = new Card(FrenchColor.DIAMOND, FrenchType.KING);
+	Card clubAce = new Card(FrenchSuit.CLUB, FrenchType.ACE);
+	Card diamondAce = new Card(FrenchSuit.DIAMOND, FrenchType.KING);
 
 	cardsOnHand.add(clubAce);
 	cardsOnHand.add(diamondAce);
 
-	m = new MustPlaySameColorIfAvailableRule(cardsOnHand);
+	m = new MustPlaySameSuitIfAvailableRule(cardsOnHand);
 	List<Card> result = m.getPlayableCards(new CardTable());
 	assertEquals(clubAce, result.get(0));
 	assertEquals(diamondAce, result.get(1));
@@ -35,12 +35,12 @@ public class MustPlaySameColorIfAvailableRuleTest {
     @Test
     public void testGetPlayableCardsWithNoPlayableCardOnHand() {
 	List<Card> cardsOnHand = new ArrayList<Card>();
-	Card diamondAce = new Card(FrenchColor.DIAMOND, FrenchType.KING);
+	Card diamondAce = new Card(FrenchSuit.DIAMOND, FrenchType.KING);
 	cardsOnHand.add(diamondAce);
-	m = new MustPlaySameColorIfAvailableRule(cardsOnHand);
+	m = new MustPlaySameSuitIfAvailableRule(cardsOnHand);
 
 	CardTable c = new CardTable();
-	c.add(new Card(FrenchColor.CLUB, FrenchType.ACE));
+	c.add(new Card(FrenchSuit.CLUB, FrenchType.ACE));
 
 	List<Card> result = m.getPlayableCards(c);
 	assertEquals(diamondAce, result.get(0));

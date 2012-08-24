@@ -5,16 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.CardColorUtils;
-import de.unitude.notrick.cards.card.color.Color;
-import de.unitude.notrick.cards.card.color.DifferentCardColorsException;
+import de.unitude.notrick.cards.card.suit.CardSuitUtils;
+import de.unitude.notrick.cards.card.suit.DifferentCardSuitException;
+import de.unitude.notrick.cards.card.suit.Suit;
 import de.unitude.notrick.cards.sorting.PriorityCardComparator;
 import de.unitude.notrick.table.CardTable;
 
 public class MustBeCardTypeNeighbour implements Rule {
 
     private List<Card> cardsOnHand;
-    private CardColorUtils cardColorUtils = new CardColorUtils();
 
     public MustBeCardTypeNeighbour(List<Card> cardsOnHand) {
 	this.cardsOnHand = cardsOnHand;
@@ -44,9 +43,9 @@ public class MustBeCardTypeNeighbour implements Rule {
     private List<Card> getNeigbours(List<Card> cardRow) {
 	List<Card> neighbours;
 
-	Color currentColor = colorOfRow(cardRow);
-	List<Card> cardsWithSameColor = CardColorUtils.filterCardsByColor(currentColor, this.cardsOnHand);
-	if (cardsWithSameColor.isEmpty()) {
+	Suit currentSuit = suitOfRow(cardRow);
+	List<Card> cardsWithSameSuit = CardSuitUtils.filterCardsBySuit(currentSuit, this.cardsOnHand);
+	if (cardsWithSameSuit.isEmpty()) {
 	    neighbours = new ArrayList<Card>();
 	} else {
 
@@ -54,7 +53,7 @@ public class MustBeCardTypeNeighbour implements Rule {
 	    int highestCardTypePriority = cardRow.get(0).getType().getPriority();
 	    int lowestCardTypeOfRow = cardRow.get(cardRow.size() - 1).getType().getPriority();
 
-	    neighbours = getImmediateNeighbours(cardsWithSameColor, highestCardTypePriority, lowestCardTypeOfRow);
+	    neighbours = getImmediateNeighbours(cardsWithSameSuit, highestCardTypePriority, lowestCardTypeOfRow);
 
 	}
 
@@ -62,12 +61,12 @@ public class MustBeCardTypeNeighbour implements Rule {
 
     }
 
-    List<Card> getImmediateNeighbours(List<Card> cardsWithSameColor, int highestPriority, int lowestPriority) {
+    List<Card> getImmediateNeighbours(List<Card> cardsWithSameSuit, int highestPriority, int lowestPriority) {
 	List<Card> immediateNeighbours = new ArrayList<Card>(2);
 
 	Card lowestNeighbour = null;
 	Card highestNeighbour = null;
-	for (Card c : cardsWithSameColor) {
+	for (Card c : cardsWithSameSuit) {
 	    int prio = c.getType().getPriority();
 
 	    if (prio - 1 == highestPriority) {
@@ -87,14 +86,14 @@ public class MustBeCardTypeNeighbour implements Rule {
 	return immediateNeighbours;
     }
 
-    private Color colorOfRow(List<Card> cards) {
-	Color colorOfFirstCard = cards.get(0).getColor();
+    private Suit suitOfRow(List<Card> cards) {
+	Suit suitOfFirstCard = cards.get(0).getSuit();
 	for (Card card : cards) {
-	    if (card.getColor() != colorOfFirstCard) {
-		throw new DifferentCardColorsException();
+	    if (card.getSuit() != suitOfFirstCard) {
+		throw new DifferentCardSuitException();
 	    }
 	}
-	return colorOfFirstCard;
+	return suitOfFirstCard;
     }
 
 }

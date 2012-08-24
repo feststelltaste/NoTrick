@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
 import de.unitude.notrick.cards.card.CardNonExistingException;
-import de.unitude.notrick.cards.card.color.DifferentCardColorsException;
-import de.unitude.notrick.cards.card.color.GermanColor;
+import de.unitude.notrick.cards.card.suit.DifferentCardSuitException;
+import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.card.type.FrenchType;
 import de.unitude.notrick.cards.card.type.GermanType;
-import de.unitude.notrick.cards.deck.FrenchColor;
+import de.unitude.notrick.cards.deck.FrenchSuit;
 
 public class CardTableTest {
 
@@ -35,17 +35,17 @@ public class CardTableTest {
     @Test
     public void testAddDifferentCardSetTypes() {
 	try {
-	    c.add(new Card(FrenchColor.CLUB, FrenchType.ACE));
-	    c.add(new Card(GermanColor.GRUEN, GermanType.ASS));
+	    c.add(new Card(FrenchSuit.CLUB, FrenchType.ACE));
+	    c.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
 	    fail();
-	} catch (DifferentCardColorsException e) {
+	} catch (DifferentCardSuitException e) {
 	    // expected
 	}
     }
 
     @Test
     public void testAdd() {
-	Card frenchClubAce = new Card(FrenchColor.CLUB, FrenchType.ACE);
+	Card frenchClubAce = new Card(FrenchSuit.CLUB, FrenchType.ACE);
 	c.add(frenchClubAce);
 	assertEquals(frenchClubAce, c.card(0));
     }

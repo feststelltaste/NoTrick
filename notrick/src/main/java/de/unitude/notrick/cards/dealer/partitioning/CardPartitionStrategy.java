@@ -6,8 +6,8 @@ import de.unitude.notrick.cards.card.Card;
 
 public interface CardPartitionStrategy {
 
-    List<Card> nextPart();
+    public List<Card> nextPart();
 
-    boolean hasCards();
+    public boolean hasCards();
 
 }

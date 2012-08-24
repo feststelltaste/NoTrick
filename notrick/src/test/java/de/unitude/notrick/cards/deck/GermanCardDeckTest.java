@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.GermanColor;
+import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.card.type.GermanType;
 import de.unitude.notrick.cards.sorting.PriorityCardComparator;
 
@@ -23,14 +23,14 @@ public class GermanCardDeckTest {
     public void testInitCardDeckConsistency() {
 
 	int i = 0;
-	int color = 0;
+	int suit = 0;
 	int type = 0;
 
 	while (cardDeck.hasCards()) {
 	    Card c = cardDeck.nextCard();
-	    color = i / 8;
+	    suit = i / 8;
 	    type = i % 8;
-	    assertEquals(color, c.getColor().getPriority());
+	    assertEquals(suit, c.getSuit().getPriority());
 	    assertEquals(type, c.getType().getPriority());
 	    i++;
 	}
@@ -51,12 +51,12 @@ public class GermanCardDeckTest {
     public void testInitSomeCards() {
 	assertEquals(GermanType.ASS, cardDeck.nextCard().getType());
 	assertEquals(GermanType.ZEHNER, cardDeck.nextCard().getType());
-	assertEquals(GermanColor.EICHEL, cardDeck.nextCard().getColor());
+	assertEquals(GermanSuit.EICHEL, cardDeck.nextCard().getSuit());
 	cardDeck.nextCard();
 	cardDeck.nextCard();
 	cardDeck.nextCard();
 	cardDeck.nextCard();
 	cardDeck.nextCard();
-	assertEquals(GermanColor.GRUEN, cardDeck.nextCard().getColor());
+	assertEquals(GermanSuit.GRUEN, cardDeck.nextCard().getSuit());
     }
 }

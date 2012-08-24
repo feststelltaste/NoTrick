@@ -5,7 +5,7 @@ import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
 import de.unitude.notrick.cards.card.CardNonExistingException;
-import de.unitude.notrick.cards.card.color.DifferentCardColorsException;
+import de.unitude.notrick.cards.card.suit.DifferentCardSuitException;
 import de.unitude.notrick.cards.card.type.Type;
 
 public class CardTable {
@@ -23,7 +23,7 @@ public class CardTable {
 	if (card == null) {
 	    throw new CardNonExistingException();
 	} else if (!isFromSameCardType(card)) {
-	    throw new DifferentCardColorsException();
+	    throw new DifferentCardSuitException();
 	}
     }
 

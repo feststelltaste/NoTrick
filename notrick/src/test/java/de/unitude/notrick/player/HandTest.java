@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.GermanColor;
+import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.card.type.GermanType;
 import de.unitude.notrick.cards.deck.CardDeck;
 import de.unitude.notrick.cards.deck.GermanCardDeck;
@@ -26,12 +26,12 @@ public class HandTest {
 
     @Test
     public void testAdd() {
-	hand.add(new Card(GermanColor.HERZ, GermanType.ASS));
-	hand.add(new Card(GermanColor.GRUEN, GermanType.ASS));
-	hand.add(new Card(GermanColor.SCHELLEN, GermanType.ASS));
-	hand.add(new Card(GermanColor.EICHEL, GermanType.ASS));
-	Card lastCardOfFirstColor = hand.getAllCards().get(handSize - 1);
-	assertEquals(GermanColor.SCHELLEN, lastCardOfFirstColor.getColor());
+	hand.add(new Card(GermanSuit.HERZ, GermanType.ASS));
+	hand.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
+	hand.add(new Card(GermanSuit.SCHELLEN, GermanType.ASS));
+	hand.add(new Card(GermanSuit.EICHEL, GermanType.ASS));
+	Card lastCardOfFirstSuit = hand.getAllCards().get(handSize - 1);
+	assertEquals(GermanSuit.SCHELLEN, lastCardOfFirstSuit.getSuit());
     }
 
 }

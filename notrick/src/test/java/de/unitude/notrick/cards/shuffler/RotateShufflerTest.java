@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.unitude.notrick.cards.card.color.GermanColor;
+import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.deck.GermanCardDeck;
 import de.unitude.notrick.cards.shuffle.RotateShuffler;
 import de.unitude.notrick.cards.shuffle.Shuffler;
@@ -31,7 +31,7 @@ public class RotateShufflerTest {
 	GermanCardDeck g = new GermanCardDeck();
 	Shuffler r = new RotateShuffler(g);
 	r.shuffleCards();
-	assertEquals(GermanColor.GRUEN, g.nextCard().getColor());
+	assertEquals(GermanSuit.GRUEN, g.nextCard().getSuit());
     }
 
 }

@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.GermanColor;
+import de.unitude.notrick.cards.card.suit.GermanSuit;
 import de.unitude.notrick.cards.card.type.GermanType;
 import de.unitude.notrick.cards.deck.GermanCardDeck;
 
@@ -30,7 +30,7 @@ public class FourCardsAtOneTimeCardPartitionStrategyTest {
 
 	assertEquals(4, firstPart.size());
 	Card lastCardOfLastPlayer = lastPart.get(lastPart.size() - 1);
-	assertEquals(GermanColor.SCHELLEN, lastCardOfLastPlayer.getColor());
+	assertEquals(GermanSuit.SCHELLEN, lastCardOfLastPlayer.getSuit());
 	assertEquals(GermanType.SIEBNER, lastCardOfLastPlayer.getType());
     }
 

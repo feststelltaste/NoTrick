@@ -1,6 +1,6 @@
-package de.unitude.notrick.cards.card.color;
+package de.unitude.notrick.cards.card.suit;
 
-public interface Color {
+public interface Suit {
 
     public String getName();
 

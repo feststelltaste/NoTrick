@@ -3,7 +3,7 @@ package de.unitude.notrick.cards.deck;
 import java.util.List;
 
 import de.unitude.notrick.cards.card.Card;
-import de.unitude.notrick.cards.card.color.Color;
+import de.unitude.notrick.cards.card.suit.Suit;
 import de.unitude.notrick.cards.card.type.FrenchType;
 import de.unitude.notrick.cards.card.type.Type;
 
@@ -17,10 +17,10 @@ public class FrenchShortCardDeck extends StandardCardDeck {
 
     @Override
     protected void init() {
-	for (FrenchColor color : FrenchColor.values()) {
+	for (FrenchSuit suit : FrenchSuit.values()) {
 	    for (FrenchType type : FrenchType.values()) {
 		if (type.getPriority() < FrenchType.SIX.getPriority()) {
-		    cards.add(new Card(color, type));
+		    cards.add(new Card(suit, type));
 		}
 	    }
 	}
@@ -34,7 +34,7 @@ public class FrenchShortCardDeck extends StandardCardDeck {
     }
 
     @Override
-    public List<? extends Color> getColors() {
+    public List<? extends Suit> getSuits() {
 	// TODO Auto-generated method stub
 	return null;
     }

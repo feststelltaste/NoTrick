@@ -22,14 +22,14 @@ public class FrenchShortCardDeckTest {
     public void testInitCardDeckConsistency() {
 
 	int i = 0;
-	int color = 0;
+	int suit = 0;
 	int type = 0;
 
 	while (cardDeck.hasCards()) {
 	    Card c = cardDeck.nextCard();
-	    color = i / 8;
+	    suit = i / 8;
 	    type = i % 8;
-	    assertEquals(color, c.getColor().getPriority());
+	    assertEquals(suit, c.getSuit().getPriority());
 	    assertEquals(type, c.getType().getPriority());
 	    i++;
 	}
@@ -50,12 +50,12 @@ public class FrenchShortCardDeckTest {
     public void testInitSomeCards() {
 	assertEquals(FrenchType.ACE, cardDeck.nextCard().getType());
 	assertEquals(FrenchType.KING, cardDeck.nextCard().getType());
-	assertEquals(FrenchColor.CLUB, cardDeck.nextCard().getColor());
+	assertEquals(FrenchSuit.CLUB, cardDeck.nextCard().getSuit());
 	cardDeck.nextCard();
 	cardDeck.nextCard();
 	cardDeck.nextCard();
 	cardDeck.nextCard();
 	cardDeck.nextCard();
-	assertEquals(FrenchColor.DIAMOND, cardDeck.nextCard().getColor());
+	assertEquals(FrenchSuit.DIAMOND, cardDeck.nextCard().getSuit());
     }
 }
