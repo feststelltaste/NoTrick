@@ -6,7 +6,7 @@ public class FrenchCardDeckTest extends StandardCardDeckTest {
 
     @Before
     public void setUp() throws Exception {
-	cardDeck = new FrenchCardDeck();
+	super.cardDeck = new FrenchCardDeck();
     }
 
 }

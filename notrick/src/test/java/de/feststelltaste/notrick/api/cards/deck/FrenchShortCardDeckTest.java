@@ -17,14 +17,14 @@ public class FrenchShortCardDeckTest extends StandardCardDeckTest {
 
     @Test
     public void testInitSomeCards() {
-	assertEquals(FrenchType.ACE, cardDeck.nextCard().getType());
-	assertEquals(FrenchType.KING, cardDeck.nextCard().getType());
-	assertEquals(FrenchSuit.CLUB, cardDeck.nextCard().getSuit());
-	cardDeck.nextCard();
-	cardDeck.nextCard();
-	cardDeck.nextCard();
-	cardDeck.nextCard();
-	cardDeck.nextCard();
-	assertEquals(FrenchSuit.DIAMOND, cardDeck.nextCard().getSuit());
+	assertEquals(FrenchType.ACE, super.cardDeck.nextCard().getType());
+	assertEquals(FrenchType.KING, super.cardDeck.nextCard().getType());
+	assertEquals(FrenchSuit.CLUB, super.cardDeck.nextCard().getSuit());
+	super.cardDeck.nextCard();
+	super.cardDeck.nextCard();
+	super.cardDeck.nextCard();
+	super.cardDeck.nextCard();
+	super.cardDeck.nextCard();
+	assertEquals(FrenchSuit.DIAMOND, super.cardDeck.nextCard().getSuit());
     }
 }

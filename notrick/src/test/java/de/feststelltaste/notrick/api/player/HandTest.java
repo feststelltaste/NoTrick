@@ -8,19 +8,14 @@ import org.junit.Test;
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.suit.GermanSuit;
 import de.feststelltaste.notrick.api.cards.card.type.GermanType;
-import de.feststelltaste.notrick.api.cards.deck.CardDeck;
-import de.feststelltaste.notrick.api.cards.deck.GermanCardDeck;
-import de.feststelltaste.notrick.api.player.Hand;
 
 public class HandTest {
 
-    Hand hand;
+    private Hand hand;
     private final int HAND_SIZE = 4;
-    CardDeck cardDeck;
 
     @Before
     public void setUp() {
-	cardDeck = new GermanCardDeck();
 	hand = new Hand(HAND_SIZE);
     }
 

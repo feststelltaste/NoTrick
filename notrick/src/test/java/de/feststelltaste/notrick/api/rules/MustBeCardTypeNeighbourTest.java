@@ -18,7 +18,7 @@ import de.feststelltaste.notrick.api.table.CardTable;
 
 public class MustBeCardTypeNeighbourTest {
 
-    MustBeCardTypeNeighbour m;
+    private MustBeCardTypeNeighbour m;
     private CardTable c;
 
     @Before
