@@ -2,7 +2,7 @@ package de.feststelltaste.notrick.api.cards.card.suit;
 
 public enum FrenchSuit implements Suit {
 
-    CLUB("club", 0), DIAMOND("diamond", 1), HEART("heat", 2), SPADES("Spades", 3);
+    CLUB("club", 0), DIAMOND("diamond", 1), HEART("heart", 2), SPADES("spades", 3);
 
     private String name;
     private int priority;
