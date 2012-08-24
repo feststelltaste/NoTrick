@@ -6,10 +6,8 @@ import de.unitude.notrick.cards.card.type.GermanType;
 
 public class GermanCardDeck extends StandardCardDeck {
 
-    private static final int DECK_SIZE = 32;
-
     public GermanCardDeck() {
-	super(DECK_SIZE);
+	super(GermanType.values().length * GermanSuit.values().length);
     }
 
     @Override
