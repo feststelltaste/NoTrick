@@ -22,6 +22,7 @@ public class Player {
     public Player(String name, Hand hand) {
 	this.name = name;
 	this.hand = hand;
+	
     }
 
     public void memorize(List<Card> cardsFromTable) {
@@ -30,10 +31,6 @@ public class Player {
 
     public Card play() {
 	return null;
-
-    }
-
-    public void preserve(List<Card> cardsFromTable, int round) {
 
     }
 
