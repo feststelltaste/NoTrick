@@ -3,21 +3,20 @@ package de.feststelltaste.notrick.api.player;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
-import de.feststelltaste.notrick.api.rules.MustPlaySameSuitIfAvailableRule;
+import de.feststelltaste.notrick.api.rules.RuleSet;
 import de.feststelltaste.notrick.api.table.CardTable;
 
-public class SimpleMindedBrain {
+public class SimpleMindedBrain implements Brain{
 
-    private MustPlaySameSuitIfAvailableRule noTrickRule;
+    private RuleSet rules;
 
-    public SimpleMindedBrain(Hand hand) {
-	this.noTrickRule = new MustPlaySameSuitIfAvailableRule(hand.getAllCards());
+    public SimpleMindedBrain(RuleSet rules) {
+	this.rules = rules;
     }
 
-    Card decide(CardTable cardTable) {
-	List<Card> playableCards = noTrickRule.getPlayableCards(cardTable);
-	Card alwaysTheFirstCardThatFits = playableCards.get(0);
-	return alwaysTheFirstCardThatFits;
+    public Card decide(CardTable cardTable, Hand hand) {
+	List<Card> playableCards = rules.follow(cardTable.allCards(), hand.getAllCards());
+	return playableCards.get(0);
     }
-
+    
 }

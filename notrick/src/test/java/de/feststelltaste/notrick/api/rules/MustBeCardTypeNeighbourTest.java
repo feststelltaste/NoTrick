@@ -10,44 +10,45 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.FrenchCardFactory;
 import de.feststelltaste.notrick.api.cards.card.suit.FrenchSuit;
 import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
-import de.feststelltaste.notrick.api.cards.deck.FrenchShortCardDeck;
-import de.feststelltaste.notrick.api.rules.MustBeCardTypeNeighbour;
-import de.feststelltaste.notrick.api.table.CardTable;
 
 public class MustBeCardTypeNeighbourTest {
 
     private MustBeCardTypeNeighbour m;
-    private CardTable c;
+    private List<Card> alreadyPlayedCards;
+    private List<Card> cardsOnHand;
 
     @Before
     public void setUp() throws Exception {
-	List<Card> cardsOnHand = new ArrayList<Card>();
-	FrenchShortCardDeck f = new FrenchShortCardDeck();
-	cardsOnHand.add(f.nextCard()); // ACE
-	cardsOnHand.add(f.nextCard()); // KING
-	c = new CardTable();
-	c.add(f.nextCard()); // QUEEN
-	m = new MustBeCardTypeNeighbour(cardsOnHand);
+	cardsOnHand = createClubsCardsOnly();
+	alreadyPlayedCards = new ArrayList<Card>();
+	alreadyPlayedCards.add(FrenchCardFactory.create("C", "Q"));
+	m = new MustBeCardTypeNeighbour();
+    }
+
+    private List<Card> createClubsCardsOnly() {
+	List<Card> cards = new ArrayList<Card>();
+	cards.add(FrenchCardFactory.create("C", "A"));
+	cards.add(FrenchCardFactory.create("C", "K"));
+	return cards;
     }
 
     @Test
     public void testGetPlayableCardsCardTable() {
-	List<Card> result = m.getPlayableCards(c);
+	List<Card> result = m.getPlayableCards(alreadyPlayedCards, cardsOnHand);
 	assertEquals(FrenchType.KING, result.get(0).getType());
     }
 
     @Test
     public void testGetPlayableCardsCardTableWithGapBetweenCards() {
-	Card ace = new Card(FrenchSuit.CLUB, FrenchType.ACE);
-	c = new CardTable();
-	c.add(ace);
+	alreadyPlayedCards.add(FrenchCardFactory.create("C", "A"));
 	List<Card> cardsOnHand = new ArrayList<Card>();
 	Card queen = new Card(FrenchSuit.CLUB, FrenchType.QUEEN);
 	cardsOnHand.add(queen);
-	m = new MustBeCardTypeNeighbour(cardsOnHand);
-	List<Card> result = m.getPlayableCards(c);
+	m = new MustBeCardTypeNeighbour();
+	List<Card> result = m.getPlayableCards(alreadyPlayedCards, cardsOnHand);
 	assertTrue(result.isEmpty());
     }
 
