@@ -3,16 +3,16 @@ package de.feststelltaste.notrick.api.cards.card;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 
 public class CardSet implements Iterable<Card> {
 
-    private Set<Card> cards;
+    private Collection<Card> cards;
 
     public CardSet() {
-	this.cards = new TreeSet<Card>();
+	this.cards = new LinkedList<Card>();
     }
 
     public CardSet(Collection<Card> cardsAsList) {

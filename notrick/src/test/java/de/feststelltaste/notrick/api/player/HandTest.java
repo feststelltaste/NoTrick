@@ -21,10 +21,10 @@ public class HandTest {
 
     @Test
     public void testAdd() {
-	hand.add(new Card(GermanSuit.HERZ, GermanType.ASS));
-	hand.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
-	hand.add(new Card(GermanSuit.SCHELLEN, GermanType.ASS));
 	hand.add(new Card(GermanSuit.EICHEL, GermanType.ASS));
+	hand.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
+	hand.add(new Card(GermanSuit.HERZ, GermanType.ASS));
+	hand.add(new Card(GermanSuit.SCHELLEN, GermanType.ASS));
 	Card lastCardOfFirstSuit = hand.getAllCards().asList().get(HAND_SIZE - 1);
 	assertEquals(GermanSuit.SCHELLEN, lastCardOfFirstSuit.getSuit());
     }
