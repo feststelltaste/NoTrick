@@ -3,7 +3,16 @@ package de.feststelltaste.notrick.presentation.console;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
+import de.feststelltaste.notrick.api.player.HumanPlayer;
+import de.feststelltaste.notrick.api.player.Player;
+
 public class ConsoleGame {
+    
+    public ConsoleGame() {
+	Player hp = new HumanPlayer();
+	
+	
+    }
 
     public static void main(String[] argv) throws UnsupportedEncodingException {
 	String unicodeMessage = heart() + diamond() + club() + spade();
