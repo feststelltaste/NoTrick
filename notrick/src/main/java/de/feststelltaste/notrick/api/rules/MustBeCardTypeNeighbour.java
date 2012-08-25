@@ -9,27 +9,18 @@ import de.feststelltaste.notrick.api.cards.card.suit.DifferentCardSuitException;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
 import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
-import de.feststelltaste.notrick.api.table.CardTable;
 
 public class MustBeCardTypeNeighbour implements Rule {
 
-    private List<Card> cardsOnHand;
-
-    public MustBeCardTypeNeighbour(List<Card> cardsOnHand) {
-	this.cardsOnHand = cardsOnHand;
-    }
-
     @Override
-    public List<Card> getPlayableCards(CardTable cardTable) {
+    public List<Card> getPlayableCards(List<Card> cardsOnTable, List<Card> cardsToFilter) {
 
 	List<Card> playableCards;
 
-	List<Card> cardRow = cardTable.allCards();
-
-	if (!isExistingCardRow(cardRow)) {
-	    playableCards = cardsOnHand;
+	if (!isExistingCardRow(cardsOnTable)) {
+	    playableCards = cardsToFilter;
 	} else {
-	    playableCards = getNeigbours(cardRow);
+	    playableCards = getNeigbours(cardsOnTable, cardsToFilter);
 	}
 
 	return playableCards;
@@ -39,11 +30,11 @@ public class MustBeCardTypeNeighbour implements Rule {
 	return cardRow != null && !cardRow.isEmpty();
     }
 
-    private List<Card> getNeigbours(List<Card> cardRow) {
+    private List<Card> getNeigbours(List<Card> cardRow, List<Card> cardsOnHand) {
 	List<Card> neighbours;
 
 	Suit currentSuit = suitOfRow(cardRow);
-	List<Card> cardsWithSameSuit = SuitFilter.same(currentSuit, this.cardsOnHand);
+	List<Card> cardsWithSameSuit = SuitFilter.same(currentSuit, cardsOnHand);
 	if (cardsWithSameSuit.isEmpty()) {
 	    neighbours = new ArrayList<Card>();
 	} else {
