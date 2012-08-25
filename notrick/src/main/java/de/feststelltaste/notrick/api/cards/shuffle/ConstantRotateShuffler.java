@@ -14,7 +14,7 @@ public class ConstantRotateShuffler implements Shuffler {
 
     @Override
     public CardDeck shuffleCards() {
-	Collections.rotate(cardDeck.getAsList(), -distanceToNextType());
+	Collections.rotate(cardDeck.asList(), -distanceToNextType());
 	return cardDeck;
     }
 

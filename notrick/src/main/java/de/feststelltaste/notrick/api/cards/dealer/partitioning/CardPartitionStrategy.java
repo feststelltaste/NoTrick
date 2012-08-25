@@ -1,12 +1,10 @@
 package de.feststelltaste.notrick.api.cards.dealer.partitioning;
 
-import java.util.List;
-
-import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 
 public interface CardPartitionStrategy {
 
-    public List<Card> nextPart();
+    public CardSet nextPart();
 
     public boolean hasCards();
 

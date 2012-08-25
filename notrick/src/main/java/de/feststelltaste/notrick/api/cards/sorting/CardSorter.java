@@ -4,14 +4,17 @@ import java.util.Collections;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 
 public class CardSorter {
 
     private CardSorter() {
     };
 
-    public static void sortLowestPriorityFirst(List<Card> cards) {
-	Collections.sort(cards, Collections.reverseOrder(new PriorityCardComparator()));
+    public static CardSet sortLowestPriorityFirst(CardSet cardSet) {
+	List<Card> cardsAsList = cardSet.asList();
+	Collections.sort(cardsAsList, Collections.reverseOrder(new PriorityCardComparator()));
+	return new CardSet(cardsAsList);
     }
 
 }

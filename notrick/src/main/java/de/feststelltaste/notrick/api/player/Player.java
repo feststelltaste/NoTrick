@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 
 public class Player {
 
@@ -34,12 +35,12 @@ public class Player {
 
     }
 
-    public List<Card> showCards() {
-	return Collections.unmodifiableList(hand.getAllCards());
+    public CardSet showCards() {
+	return hand.getAllCards();
     }
 
-    public void take(Collection<Card> cards) {
-	this.hand.getAllCards().addAll(cards);
+    public void take(CardSet cardSet) {
+	this.hand.add(cardSet);
     }
 
     public void take(Card card) {

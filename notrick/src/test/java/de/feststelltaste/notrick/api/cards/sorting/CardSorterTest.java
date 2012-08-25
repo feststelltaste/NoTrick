@@ -2,16 +2,13 @@ package de.feststelltaste.notrick.api.cards.sorting;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.suit.GermanSuit;
 import de.feststelltaste.notrick.api.cards.card.type.GermanType;
-import de.feststelltaste.notrick.api.cards.sorting.CardSorter;
 
 public class CardSorterTest {
 
@@ -24,14 +21,13 @@ public class CardSorterTest {
 
     @Test
     public void testCollectionsSort() {
-	List<Card> cards = new ArrayList<Card>();
+	CardSet cards = new CardSet();
 	cards.add(secondHighestCard);
 	cards.add(highestCard);
 
-	CardSorter.sortLowestPriorityFirst(cards);
-
-	assertEquals(highestCard, cards.get(0));
-	assertEquals(secondHighestCard, cards.get(1));
+	cards = CardSorter.sortLowestPriorityFirst(cards);
+	assertEquals(highestCard, cards.asList().get(0));
+	assertEquals(secondHighestCard, cards.asList().get(1));
     }
 
 }

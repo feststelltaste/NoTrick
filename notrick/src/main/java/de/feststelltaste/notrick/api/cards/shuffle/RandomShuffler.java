@@ -21,7 +21,7 @@ public class RandomShuffler implements Shuffler {
 
     @Override
     public CardDeck shuffleCards() {
-	Collections.shuffle(cardDeck.getAsList(), random);
+	Collections.shuffle(cardDeck.asList(), random);
 	return cardDeck;
     }
 

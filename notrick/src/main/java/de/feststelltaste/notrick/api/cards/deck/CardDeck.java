@@ -3,10 +3,11 @@ package de.feststelltaste.notrick.api.cards.deck;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 
 public interface CardDeck {
 
-    List<Card> getAsList();
+    List<Card> asList();
 
     int getDeckSize();
 
@@ -14,7 +15,7 @@ public interface CardDeck {
 
     Card nextCard();
 
-    List<Card> nextCards(int numberOfCards);
+    CardSet nextCards(int numberOfCards);
 
     int numberOfTypes();
 

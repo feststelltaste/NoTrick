@@ -1,33 +1,43 @@
 package de.feststelltaste.notrick.api.player;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.sorting.CardSorter;
 
 public class Hand {
 
     private int maxCardsOnHand;
-    private List<Card> cardsOnHand = new ArrayList<Card>();
+    private CardSet cardSet = new CardSet();
 
     public Hand(int maxCardsOnHand) {
 	this.maxCardsOnHand = maxCardsOnHand;
     }
 
     public void add(Card card) {
-	cardsOnHand.add(card);
-	if (cardsOnHand.size() == maxCardsOnHand) {
-	    CardSorter.sortLowestPriorityFirst(cardsOnHand);
+	cardSet.add(card);
+	if (cardSet.size() == maxCardsOnHand) {
+	    CardSorter.sortLowestPriorityFirst(cardSet);
 	}
     }
 
-    public List<Card> getAllCards() {
-	return cardsOnHand;
+    public CardSet getAllCards() {
+	return cardSet;
     }
 
     public int size() {
-	return cardsOnHand.size();
+	return cardSet.size();
+    }
+
+    public void set(CardSet cardSet) {
+	this.cardSet = cardSet;
+    }
+
+    public void add(CardSet additionalCardSet) {
+	for(Card card : additionalCardSet){
+	    this.cardSet.add(card);
+	}
     }
 
 }

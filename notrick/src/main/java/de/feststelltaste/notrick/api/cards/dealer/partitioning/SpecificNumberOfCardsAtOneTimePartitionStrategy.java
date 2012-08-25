@@ -1,8 +1,6 @@
 package de.feststelltaste.notrick.api.cards.dealer.partitioning;
 
-import java.util.List;
-
-import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.deck.CardDeck;
 
 public class SpecificNumberOfCardsAtOneTimePartitionStrategy implements CardPartitionStrategy {
@@ -16,7 +14,7 @@ public class SpecificNumberOfCardsAtOneTimePartitionStrategy implements CardPart
     }
 
     @Override
-    public List<Card> nextPart() {
+    public CardSet nextPart() {
 	return cardDeck.nextCards(numberOfCardsToPartition);
     }
 

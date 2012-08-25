@@ -32,10 +32,10 @@ public class OneAfterAnotherClockWiseCardDealingStrategyTest {
 		players, cardPartitioning);
 	dealingStrategy.deal();
 
-	assertEquals(FrenchType.ACE, firstPlayer.showCards().get(0).getType());
-	assertEquals(FrenchType.KING, secondPlayer.showCards().get(0).getType());
-	assertEquals(FrenchType.EIGTH, firstPlayer.showCards().get(7).getType());
-	assertEquals(FrenchType.SEVEN, secondPlayer.showCards().get(7).getType());
+	assertEquals(FrenchType.ACE, firstPlayer.showCards().asList().get(0).getType());
+	assertEquals(FrenchType.KING, secondPlayer.showCards().asList().get(0).getType());
+	assertEquals(FrenchType.EIGTH, firstPlayer.showCards().asList().get(7).getType());
+	assertEquals(FrenchType.SEVEN, secondPlayer.showCards().asList().get(7).getType());
     }
 
 }

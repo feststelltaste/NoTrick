@@ -36,7 +36,7 @@ public abstract class StandardCardDeckTest {
 
     @Test
     public void checkCardHashCodes() {
-	Set<Card> cards = new HashSet<Card>(cardDeck.getAsList());
+	Set<Card> cards = new HashSet<Card>(cardDeck.asList());
 	assertEquals(cardDeck.getDeckSize(), cards.size());
     }
 

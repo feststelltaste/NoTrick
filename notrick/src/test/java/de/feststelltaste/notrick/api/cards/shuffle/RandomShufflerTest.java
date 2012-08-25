@@ -26,7 +26,7 @@ public class RandomShufflerTest {
     @Test
     public void testShuffleCards() {
 	CardDeck c = r.shuffleCards();
-	List<Card> cards = c.getAsList();
+	List<Card> cards = c.asList();
 	Card firstTestCard = new Card(FrenchSuit.HEART, FrenchType.ACE);
 	Card middleTestCard = new Card(FrenchSuit.HEART, FrenchType.QUEEN);
 	Card lastTestCard = new Card(FrenchSuit.HEART, FrenchType.SEVEN);

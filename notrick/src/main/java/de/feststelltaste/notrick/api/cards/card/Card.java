@@ -2,8 +2,9 @@ package de.feststelltaste.notrick.api.cards.card;
 
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 import de.feststelltaste.notrick.api.cards.card.type.Type;
+import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
 
-public class Card {
+public class Card implements Comparable<Card>{
 
     private Suit suit;
     private Type type;
@@ -58,6 +59,11 @@ public class Card {
     @Override
     public String toString() {
 	return suit.getPriority() + ":" + type.getPriority() + ": " + getName();
+    }
+
+    @Override
+    public int compareTo(Card o) {
+	return -1 * new PriorityCardComparator().compare(this, o);
     }
 
 }

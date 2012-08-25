@@ -36,8 +36,8 @@ public class FourCardsAtOnceAfterAnotherDealerTest {
     @Test
     public void testDeal() {
 	d.deal();
-	assertEquals(FrenchType.ACE, p1.showCards().get(0).getType());
-	assertEquals(FrenchType.TEN, p2.showCards().get(0).getType());
+	assertEquals(FrenchType.ACE, p1.showCards().asList().get(0).getType());
+	assertEquals(FrenchType.TEN, p2.showCards().asList().get(0).getType());
     }
 
 }

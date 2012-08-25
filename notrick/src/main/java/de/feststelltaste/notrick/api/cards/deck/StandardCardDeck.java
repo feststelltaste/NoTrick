@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 
 public abstract class StandardCardDeck implements CardDeck {
 
@@ -20,7 +21,7 @@ public abstract class StandardCardDeck implements CardDeck {
     }
 
     @Override
-    public List<Card> getAsList() {
+    public List<Card> asList() {
 	return cards;
     }
 
@@ -42,9 +43,9 @@ public abstract class StandardCardDeck implements CardDeck {
     }
 
     @Override
-    public List<Card> nextCards(int numberOfCards) {
+    public CardSet nextCards(int numberOfCards) {
 	int counter = 0;
-	List<Card> returnedCards = new ArrayList<Card>();
+	CardSet returnedCards = new CardSet();
 	while (iterator.hasNext() && numberOfCards > counter) {
 	    returnedCards.add(iterator.next());
 	    counter++;
