@@ -8,7 +8,6 @@ import java.util.Set;
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
-import de.feststelltaste.notrick.api.cards.deck.CardDeck;
 import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
 
 public abstract class StandardCardDeckTest {

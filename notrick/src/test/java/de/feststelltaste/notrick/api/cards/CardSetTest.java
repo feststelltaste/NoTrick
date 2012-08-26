@@ -6,9 +6,6 @@ import static org.junit.Assert.fail;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,8 +13,6 @@ import org.junit.Test;
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.FrenchCardFactory;
-import de.feststelltaste.notrick.api.cards.card.GermanCardFactory;
-import de.feststelltaste.notrick.api.cards.card.type.GermanType;
 
 public class CardSetTest {
 

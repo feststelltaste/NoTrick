@@ -1,6 +1,5 @@
 package de.feststelltaste.notrick.api.cards.card.suit;
 
-import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 
 public enum TestSuit implements Suit {
 

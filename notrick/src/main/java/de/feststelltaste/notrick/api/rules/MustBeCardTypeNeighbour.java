@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.suit.DifferentCardSuitException;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
@@ -13,9 +14,9 @@ import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
 public class MustBeCardTypeNeighbour implements Rule {
 
     @Override
-    public List<Card> getPlayableCards(List<Card> cardsOnTable, List<Card> cardsToFilter) {
+    public CardSet getPlayableCards(CardSet cardsOnTable, CardSet cardsToFilter) {
 
-	List<Card> playableCards;
+	CardSet playableCards;
 
 	if (!isExistingCardRow(cardsOnTable)) {
 	    playableCards = cardsToFilter;
@@ -26,22 +27,22 @@ public class MustBeCardTypeNeighbour implements Rule {
 	return playableCards;
     }
 
-    private boolean isExistingCardRow(List<Card> cardRow) {
-	return cardRow != null && !cardRow.isEmpty();
+    private boolean isExistingCardRow(CardSet cardsOnTable) {
+	return cardsOnTable != null && !cardsOnTable.isEmpty();
     }
 
-    private List<Card> getNeigbours(List<Card> cardRow, List<Card> cardsOnHand) {
-	List<Card> neighbours;
+    private CardSet getNeigbours(CardSet cardsOnTable, CardSet cardsToFilter) {
+	CardSet neighbours;
 
-	Suit currentSuit = suitOfRow(cardRow);
-	List<Card> cardsWithSameSuit = SuitFilter.same(currentSuit, cardsOnHand);
+	Suit currentSuit = suitOfRow(cardsOnTable);
+	CardSet cardsWithSameSuit = SuitFilter.same(currentSuit, cardsToFilter);
 	if (cardsWithSameSuit.isEmpty()) {
-	    neighbours = new ArrayList<Card>();
+	    neighbours = new CardSet();
 	} else {
 
-	    Collections.sort(cardRow, new PriorityCardComparator());
-	    int highestCardTypePriority = cardRow.get(0).getType().getPriority();
-	    int lowestCardTypeOfRow = cardRow.get(cardRow.size() - 1).getType().getPriority();
+	    Collections.sort(cardsOnTable.asList(), new PriorityCardComparator());
+	    int highestCardTypePriority = cardsOnTable.asList().get(0).getType().getPriority();
+	    int lowestCardTypeOfRow = cardsOnTable.asList().get(cardsOnTable.size() - 1).getType().getPriority();
 
 	    neighbours = getImmediateNeighbours(cardsWithSameSuit, highestCardTypePriority, lowestCardTypeOfRow);
 
@@ -51,8 +52,8 @@ public class MustBeCardTypeNeighbour implements Rule {
 
     }
 
-    List<Card> getImmediateNeighbours(List<Card> cardsWithSameSuit, int highestPriority, int lowestPriority) {
-	List<Card> immediateNeighbours = new ArrayList<Card>(2);
+    protected CardSet getImmediateNeighbours(CardSet cardsWithSameSuit, int highestPriority, int lowestPriority) {
+	CardSet immediateNeighbours = new CardSet();
 
 	Card lowestNeighbour = null;
 	Card highestNeighbour = null;
@@ -78,9 +79,9 @@ public class MustBeCardTypeNeighbour implements Rule {
 	return immediateNeighbours;
     }
 
-    private Suit suitOfRow(List<Card> cards) {
-	Suit suitOfFirstCard = cards.get(0).getSuit();
-	for (Card card : cards) {
+    private Suit suitOfRow(CardSet cardsOnTable) {
+	Suit suitOfFirstCard = cardsOnTable.asList().get(0).getSuit();
+	for (Card card : cardsOnTable) {
 	    if (card.getSuit() != suitOfFirstCard) {
 		throw new DifferentCardSuitException();
 	    }

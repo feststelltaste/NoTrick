@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
-import de.feststelltaste.notrick.api.cards.dealer.FourCardsAtOnceAfterAnotherDealer;
 import de.feststelltaste.notrick.api.cards.deck.CardDeck;
 import de.feststelltaste.notrick.api.cards.deck.FrenchShortCardDeck;
 import de.feststelltaste.notrick.api.player.Player;

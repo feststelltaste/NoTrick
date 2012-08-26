@@ -40,4 +40,8 @@ public class CardSet implements Iterable<Card> {
 	return cards.size();
     }
 
+    public boolean isEmpty() {
+	return cards.isEmpty();
+    }
+
 }

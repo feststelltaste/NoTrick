@@ -8,7 +8,6 @@ import java.util.List;
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
-import de.feststelltaste.notrick.api.cards.dealer.dealing.OneAfterAnotherClockWiseCardDealingStrategy;
 import de.feststelltaste.notrick.api.cards.dealer.partitioning.CardPartitionStrategy;
 import de.feststelltaste.notrick.api.cards.dealer.partitioning.SpecificNumberOfCardsAtOneTimePartitionStrategy;
 import de.feststelltaste.notrick.api.cards.deck.FrenchShortCardDeck;

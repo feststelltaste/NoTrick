@@ -1,11 +1,9 @@
 package de.feststelltaste.notrick.api.rules;
 
-import java.util.List;
-
-import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 
 public interface Rule {
 
-    public List<Card> getPlayableCards(List<Card> alreadyPlayedCards, List<Card> cardsAllowedToPlay);
+    public CardSet getPlayableCards(CardSet alreadyPlayedCards, CardSet cardsAllowedToPlay);
 
 }

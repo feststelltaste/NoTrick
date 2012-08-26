@@ -8,7 +8,6 @@ import org.junit.Test;
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.suit.GermanSuit;
 import de.feststelltaste.notrick.api.cards.card.type.GermanType;
-import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
 
 public class PriorityCardComparatorTest {
 

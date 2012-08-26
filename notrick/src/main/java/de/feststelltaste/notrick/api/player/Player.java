@@ -1,7 +1,5 @@
 package de.feststelltaste.notrick.api.player;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;

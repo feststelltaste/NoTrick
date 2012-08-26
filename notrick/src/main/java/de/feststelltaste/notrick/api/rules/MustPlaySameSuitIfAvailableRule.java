@@ -3,41 +3,40 @@ package de.feststelltaste.notrick.api.rules;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
 import de.feststelltaste.notrick.api.cards.card.suit.SuitInspector;
-import de.feststelltaste.notrick.api.player.Hand;
-import de.feststelltaste.notrick.api.table.CardTable;
 
 public class MustPlaySameSuitIfAvailableRule implements Rule {
 
     @Override
-    public List<Card> getPlayableCards(List<Card> alreadyPlayedCards, List<Card> cards) {
-	List<Card> playableCards = cards;
+    public CardSet getPlayableCards(CardSet alreadyPlayedCards, CardSet cardsOnHand) {
+	CardSet playableCards = cardsOnHand;
 
 	if (isCardAlreadyPlayed(alreadyPlayedCards)) {
 	    Suit suitThatsOnTable = suitOfFirstPlayedCard(alreadyPlayedCards);
-	    if (isSuitOnHand(suitThatsOnTable, cards)) {
-		playableCards = cardsOfSameSuit(suitThatsOnTable, cards);
+	    if (isSuitOnHand(suitThatsOnTable, cardsOnHand)) {
+		playableCards = cardsOfSameSuit(suitThatsOnTable, cardsOnHand);
 	    } 
 	}
 
 	return playableCards;
     }
 
-    private boolean isCardAlreadyPlayed(List<Card> cardsOnTable) {
-	return cardsOnTable != null && !cardsOnTable.isEmpty();
+    private boolean isCardAlreadyPlayed(CardSet alreadyPlayedCards) {
+	return !alreadyPlayedCards.isEmpty();
     }
 
-    private Suit suitOfFirstPlayedCard(List<Card> alreadyPlayedCards) {
-	return alreadyPlayedCards.get(0).getSuit();
+    private Suit suitOfFirstPlayedCard(CardSet alreadyPlayedCards) {
+	return alreadyPlayedCards.asList().get(0).getSuit();
     }
 
-    private List<Card> cardsOfSameSuit(Suit suitOnTable, List<Card> cardsOnHand) {
+    private CardSet cardsOfSameSuit(Suit suitOnTable, CardSet cardsOnHand) {
 	return SuitFilter.same(suitOnTable, cardsOnHand);
     }
 
-    private boolean isSuitOnHand(Suit suitOfFirstCard, List<Card> cardsOnHand) {
+    private boolean isSuitOnHand(Suit suitOfFirstCard, CardSet cardsOnHand) {
 	return SuitInspector.hasSuit(suitOfFirstCard, cardsOnHand);
     }
 

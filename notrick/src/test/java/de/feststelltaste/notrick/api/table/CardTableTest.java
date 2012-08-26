@@ -1,6 +1,9 @@
 package de.feststelltaste.notrick.api.table;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +15,6 @@ import de.feststelltaste.notrick.api.cards.card.suit.FrenchSuit;
 import de.feststelltaste.notrick.api.cards.card.suit.GermanSuit;
 import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
 import de.feststelltaste.notrick.api.cards.card.type.GermanType;
-import de.feststelltaste.notrick.api.table.CardTable;
 
 public class CardTableTest {
 
