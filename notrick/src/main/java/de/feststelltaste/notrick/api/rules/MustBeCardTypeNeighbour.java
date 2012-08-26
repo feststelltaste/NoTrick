@@ -1,14 +1,11 @@
 package de.feststelltaste.notrick.api.rules;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.suit.DifferentCardSuitException;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
-import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
 import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
 
 public class MustBeCardTypeNeighbour implements Rule {
@@ -35,7 +32,7 @@ public class MustBeCardTypeNeighbour implements Rule {
 	CardSet neighbours;
 
 	Suit currentSuit = suitOfRow(cardsOnTable);
-	CardSet cardsWithSameSuit = SuitFilter.same(currentSuit, cardsToFilter);
+	CardSet cardsWithSameSuit = cardsToFilter.filter(currentSuit);
 	if (cardsWithSameSuit.isEmpty()) {
 	    neighbours = new CardSet();
 	} else {

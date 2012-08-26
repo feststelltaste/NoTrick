@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
-import de.feststelltaste.notrick.api.cards.card.suit.SuitFilter;
 
 public class CardSet implements Iterable<Card> {
 
@@ -28,10 +27,6 @@ public class CardSet implements Iterable<Card> {
 	return cards.contains(card);
     }
 
-    public boolean has(Suit suit) {
-	return !SuitFilter.same(suit, this).isEmpty();
-    }
-
     @Override
     public Iterator<Card> iterator() {
 	return cards.iterator();
@@ -47,6 +42,22 @@ public class CardSet implements Iterable<Card> {
 
     public boolean isEmpty() {
 	return cards.isEmpty();
+    }
+
+    public boolean has(Suit suit) {
+	return !filter(suit).isEmpty();
+    }
+
+    public CardSet filter(Suit suit) {
+	CardSet cardsWithSuit = new CardSet();
+
+	for (Card card : this) {
+	    if (card.getSuit() == suit) {
+		cardsWithSuit.add(card);
+	    }
+	}
+
+	return cardsWithSuit;
     }
 
 }
