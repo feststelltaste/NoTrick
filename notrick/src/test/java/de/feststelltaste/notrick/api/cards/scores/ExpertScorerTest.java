@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.feststelltaste.notrick.api.cards.CardSetDataProvider;
 import de.feststelltaste.notrick.api.cards.TestCard;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
 
@@ -16,7 +17,7 @@ public class ExpertScorerTest {
     @Before
     public void setUp() throws Exception {
 	expertScorer = new ExpertScorer();
-	cardSet = createFullyFilledCardSet();
+	cardSet = CardSetDataProvider.createFullyFilledCardSet();
     }
     
     @Test
@@ -53,16 +54,5 @@ public class ExpertScorerTest {
 	expertScorer.add(TestCard.A1.getSuit(),1);
 	assertEquals(3, expertScorer.determine(cardSet));
     }
-
-    private CardSet createFullyFilledCardSet() {
-   	CardSet c = new CardSet();
-   	c.add(TestCard.A1);
-   	c.add(TestCard.A2);
-   	c.add(TestCard.A3);
-   	c.add(TestCard.B1);
-   	c.add(TestCard.B2);
-   	c.add(TestCard.B3);
-   	return c;
-       }
 
 }

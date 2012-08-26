@@ -1,5 +1,6 @@
 package de.feststelltaste.notrick.api.cards;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -13,6 +14,7 @@ import org.junit.Test;
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.FrenchCardFactory;
+import de.feststelltaste.notrick.api.cards.card.suit.TestSuit;
 
 public class CardSetTest {
 
@@ -33,24 +35,36 @@ public class CardSetTest {
 	assertTrue("Should have card " + queenOfHearts.getName(), this.cardSet.has(queenOfHearts));
 	assertTrue("Should have card " + jackOfSpades.getName(), this.cardSet.has(jackOfSpades));
     }
-    
+
     @Test
-    public void checkIterator(){
+    public void checkIterator() {
 	Iterator<Card> iterator = cardSet.iterator();
 	assertTrue(iterator.hasNext());
 	assertTrue(iterator.next() instanceof Card);
 	assertTrue(iterator.next() instanceof Card);
 	assertFalse(iterator.hasNext());
-	
-	try{
+
+	try {
 	    iterator.next();
 	    fail();
+	} catch (NoSuchElementException expected) {
+	    // expected
 	}
-	catch (NoSuchElementException expected) {
-	    //expected
-	}
-	
+
     }
 
+    @Test
+    public void hasSuitA() {
+	CardSet cardSet = new CardSet();
+	cardSet.add(TestCard.A1);
+	assertTrue(cardSet.has(TestSuit.A));
+	assertFalse(cardSet.has(TestSuit.B));
+    }
+
+    @Test
+    public void filterSuitA() {
+	CardSet cardSet = CardSetDataProvider.createFullyFilledCardSet();
+	assertEquals(3, cardSet.filter(TestSuit.A).size());
+    }
 
 }
