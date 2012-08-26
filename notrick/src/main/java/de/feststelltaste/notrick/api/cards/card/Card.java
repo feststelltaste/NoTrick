@@ -4,7 +4,7 @@ import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 import de.feststelltaste.notrick.api.cards.card.type.Type;
 import de.feststelltaste.notrick.api.cards.sorting.PriorityCardComparator;
 
-public class Card implements Comparable<Card>{
+public class Card implements Comparable<Card> {
 
     private Suit suit;
     private Type type;
