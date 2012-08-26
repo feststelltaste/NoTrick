@@ -1,6 +1,7 @@
 package de.feststelltaste.notrick.api.cards.shuffle;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 import java.util.Random;
@@ -13,6 +14,7 @@ import de.feststelltaste.notrick.api.cards.card.suit.FrenchSuit;
 import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
 import de.feststelltaste.notrick.api.cards.deck.CardDeck;
 import de.feststelltaste.notrick.api.cards.deck.FrenchShortCardDeck;
+import de.feststelltaste.notrick.api.cards.deck.TestCardDeck;
 
 public class RandomShufflerTest {
 
@@ -21,6 +23,11 @@ public class RandomShufflerTest {
     @Before
     public void setUp() throws Exception {
 	r = new RandomShuffler(new FrenchShortCardDeck(), new Random(1l));
+    }
+    
+    @Test
+    public void createRandomShuffler(){
+	assertNotNull(new RandomShuffler(new TestCardDeck()));
     }
 
     @Test

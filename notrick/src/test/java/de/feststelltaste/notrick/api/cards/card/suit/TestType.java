@@ -1,4 +1,4 @@
-package de.feststelltaste.notrick.api.cards.card;
+package de.feststelltaste.notrick.api.cards.card.suit;
 
 import de.feststelltaste.notrick.api.cards.card.type.Type;
 

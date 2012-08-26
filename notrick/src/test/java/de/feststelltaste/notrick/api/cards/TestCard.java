@@ -1,6 +1,9 @@
-package de.feststelltaste.notrick.api.cards.card;
+package de.feststelltaste.notrick.api.cards;
 
+import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.suit.Suit;
+import de.feststelltaste.notrick.api.cards.card.suit.TestSuit;
+import de.feststelltaste.notrick.api.cards.card.suit.TestType;
 import de.feststelltaste.notrick.api.cards.card.type.Type;
 
 public class TestCard extends Card {
