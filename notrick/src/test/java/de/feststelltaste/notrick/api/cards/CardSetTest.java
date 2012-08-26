@@ -29,12 +29,9 @@ public class CardSetTest {
 
     @Test
     public void addingAndHavingCards() {
-	CardSet cardSet = new CardSet();
-	cardSet.add(queenOfHearts);
-	cardSet.add(jackOfSpades);
-	assertFalse("Should not have card", cardSet.has(FrenchCardFactory.create("C", "9")));
-	assertTrue("Should have card " + queenOfHearts.getName(), cardSet.has(queenOfHearts));
-	assertTrue("Should have card " + jackOfSpades.getName(), cardSet.has(jackOfSpades));
+	assertFalse("Should not have card", this.cardSet.has(FrenchCardFactory.create("C", "9")));
+	assertTrue("Should have card " + queenOfHearts.getName(), this.cardSet.has(queenOfHearts));
+	assertTrue("Should have card " + jackOfSpades.getName(), this.cardSet.has(jackOfSpades));
     }
     
     @Test
