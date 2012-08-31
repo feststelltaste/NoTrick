@@ -7,18 +7,18 @@ import de.feststelltaste.notrick.api.cards.card.CardSet;
 
 public interface CardDeck {
 
-    List<Card> asList();
+    public List<Card> asList();
 
-    int getDeckSize();
+    public int getDeckSize();
 
-    boolean hasCards();
+    public boolean hasCards();
 
-    Card nextCard();
+    public Card nextCard();
 
-    CardSet nextCards(int numberOfCards);
+    public CardSet nextCards(int numberOfCards);
 
-    int numberOfTypes();
+    public int numberOfTypes();
 
-    int numberOfSuits();
+    public int numberOfSuits();
 
 }
