@@ -21,7 +21,7 @@ public class Player {
     public Player(String name, Hand hand) {
 	this.name = name;
 	this.hand = hand;
-	
+
     }
 
     public void memorize(List<Card> cardsFromTable) {

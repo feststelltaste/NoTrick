@@ -13,7 +13,7 @@ public abstract class StandardCardDeck implements CardDeck {
     protected Iterator<Card> iterator;
     private int decksize;
 
-    public StandardCardDeck(int decksize) {
+    protected StandardCardDeck(int decksize) {
 	this.decksize = decksize;
 	cards = new ArrayList<Card>(decksize);
 	init();

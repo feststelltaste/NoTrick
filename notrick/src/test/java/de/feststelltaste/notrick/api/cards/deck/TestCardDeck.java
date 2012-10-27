@@ -1,52 +1,35 @@
 package de.feststelltaste.notrick.api.cards.deck;
 
-import java.util.List;
-
 import de.feststelltaste.notrick.api.cards.card.Card;
-import de.feststelltaste.notrick.api.cards.card.CardSet;
+import de.feststelltaste.notrick.api.cards.card.suit.FrenchSuit;
+import de.feststelltaste.notrick.api.cards.card.suit.TestSuit;
+import de.feststelltaste.notrick.api.cards.card.suit.TestType;
+import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
 
-public class TestCardDeck implements CardDeck {
+public class TestCardDeck extends StandardCardDeck {
 
-    @Override
-    public List<Card> asList() {
-	// TODO Auto-generated method stub
-	return null;
-    }
-
-    @Override
-    public int getDeckSize() {
-	// TODO Auto-generated method stub
-	return 0;
-    }
-
-    @Override
-    public boolean hasCards() {
-	// TODO Auto-generated method stub
-	return false;
-    }
-
-    @Override
-    public Card nextCard() {
-	// TODO Auto-generated method stub
-	return null;
-    }
-
-    @Override
-    public CardSet nextCards(int numberOfCards) {
-	// TODO Auto-generated method stub
-	return null;
+    public TestCardDeck() {
+	super(TestType.values().length+TestSuit.values().length);
     }
 
     @Override
     public int numberOfTypes() {
-	// TODO Auto-generated method stub
-	return 0;
+	return TestType.values().length;
     }
 
     @Override
     public int numberOfSuits() {
-	// TODO Auto-generated method stub
-	return 0;
+	return TestSuit.values().length;
     }
+
+    @Override
+    protected void init() {
+	for (TestSuit suit : TestSuit.values()) {
+	    for (TestType type : TestType.values()) {
+		super.cards.add(new Card(suit, type));
+	    }
+	}
+    }
+    
 
 }
