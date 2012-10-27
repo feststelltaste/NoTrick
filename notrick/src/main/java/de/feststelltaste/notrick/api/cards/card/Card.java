@@ -32,7 +32,9 @@ public class Card implements Comparable<Card> {
 	    return true;
 	if (obj == null)
 	    return false;
-	if (getClass() != obj.getClass())
+	// Check also for child classes. Enables easier testing on equality.
+	// Note: In production environments, there will be only one card type.
+	if (!(obj instanceof Card))
 	    return false;
 	Card other = (Card) obj;
 	if (suit == null) {
