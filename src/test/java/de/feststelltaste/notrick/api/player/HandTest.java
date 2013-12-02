@@ -20,64 +20,64 @@ public class HandTest {
 
     @Before
     public void setUp() {
-	hand = new Hand(HAND_SIZE);
+        hand = new Hand(HAND_SIZE);
     }
 
     @Test
     public void addCards() {
-	hand.add(new Card(GermanSuit.EICHEL, GermanType.ASS));
-	hand.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
-	hand.add(new Card(GermanSuit.HERZ, GermanType.ASS));
-	hand.add(new Card(GermanSuit.SCHELLEN, GermanType.ASS));
-	Card lastCardOfFirstSuit = hand.getAllCards().asList().get(HAND_SIZE - 1);
-	assertEquals(GermanSuit.SCHELLEN, lastCardOfFirstSuit.getSuit());
+        hand.add(new Card(GermanSuit.EICHEL, GermanType.ASS));
+        hand.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
+        hand.add(new Card(GermanSuit.HERZ, GermanType.ASS));
+        hand.add(new Card(GermanSuit.SCHELLEN, GermanType.ASS));
+        Card lastCardOfFirstSuit = hand.getAllCards().asList().get(HAND_SIZE - 1);
+        assertEquals(GermanSuit.SCHELLEN, lastCardOfFirstSuit.getSuit());
     }
-    
+
     @Test
     public void sizeCheck() {
-	assertEquals(0,hand.size());
-	hand.add(TestCard.A1);
-	assertEquals(1, hand.size());
+        assertEquals(0, hand.size());
+        hand.add(TestCard.A1);
+        assertEquals(1, hand.size());
     }
 
     @Test
     public void testSet() {
-	CardSet c = new CardSet();
-	c.add(TestCard.A1);
-	c.add(TestCard.A2);
-	hand.set(c);
-	assertTrue(hand.getAllCards().has(TestCard.A1));
-	assertTrue(hand.getAllCards().has(TestCard.A2));
-	assertFalse(hand.getAllCards().has(TestCard.A3));	
+        CardSet c = new CardSet();
+        c.add(TestCard.A1);
+        c.add(TestCard.A2);
+        hand.set(c);
+        assertTrue(hand.getAllCards().has(TestCard.A1));
+        assertTrue(hand.getAllCards().has(TestCard.A2));
+        assertFalse(hand.getAllCards().has(TestCard.A3));
     }
 
     @Test
     public void addEmptyCardSet() {
-	CardSet additionalCardSet = new CardSet();
-	hand.add(additionalCardSet);
-	assertEquals(0,hand.size());
+        CardSet additionalCardSet = new CardSet();
+        hand.add(additionalCardSet);
+        assertEquals(0, hand.size());
     }
-    
+
     @Test
     public void addCardSet() {
-	CardSet additionalCardSet = new CardSet();
-	additionalCardSet.add(TestCard.A2);
-	additionalCardSet.add(TestCard.A1);
-	hand.add(additionalCardSet);
-	assertEquals(2,hand.size());
-	assertEquals(TestCard.A1,hand.getAllCards().asList().get(0));
-	assertEquals(TestCard.A2,hand.getAllCards().asList().get(1));
+        CardSet additionalCardSet = new CardSet();
+        additionalCardSet.add(TestCard.A2);
+        additionalCardSet.add(TestCard.A1);
+        hand.add(additionalCardSet);
+        assertEquals(2, hand.size());
+        assertEquals(TestCard.A1, hand.getAllCards().asList().get(0));
+        assertEquals(TestCard.A2, hand.getAllCards().asList().get(1));
     }
-    
+
     @Test
-    public void testTooManyCardsOnHand(){
-	hand = new Hand(1);
-	hand.add(TestCard.A1);
-	try {
-	    hand.add(TestCard.A2);
-	} catch (TooManyCardsForHandException expected) {
-	    // expected
-	}
+    public void testTooManyCardsOnHand() {
+        hand = new Hand(1);
+        hand.add(TestCard.A1);
+        try {
+            hand.add(TestCard.A2);
+        } catch (TooManyCardsForHandException expected) {
+            // expected
+        }
     }
 
 }

@@ -18,18 +18,18 @@ public class LowestPriorityFirstCardSorterTest {
 
     @Before
     public void setUp() throws Exception {
-    	sorter = new LowestPriorityFirstCardSorter();
+        sorter = new LowestPriorityFirstCardSorter();
     }
 
     @Test
     public void testCollectionsSort() {
-	CardSet cards = new CardSet();
-	cards.add(secondHighestCard);
-	cards.add(highestCard);
+        CardSet cards = new CardSet();
+        cards.add(secondHighestCard);
+        cards.add(highestCard);
 
-	cards = sorter.sort(cards);
-	assertEquals(highestCard, cards.asList().get(0));
-	assertEquals(secondHighestCard, cards.asList().get(1));
+        cards = sorter.sort(cards);
+        assertEquals(highestCard, cards.asList().get(0));
+        assertEquals(secondHighestCard, cards.asList().get(1));
     }
 
 }

@@ -22,50 +22,50 @@ public class CardTableTest {
 
     @Before
     public void setUp() throws Exception {
-	c = new CardTable();
+        c = new CardTable();
     }
 
     @Test
     public void testAddNull() {
-	try {
-	    c.add(null);
-	    fail();
-	} catch (CardNonExistingException e) {
-	    // expected
-	}
+        try {
+            c.add(null);
+            fail();
+        } catch (CardNonExistingException e) {
+            // expected
+        }
     }
 
     @Test
     public void testAddDifferentCardSetTypes() {
-	try {
-	    c.add(new Card(FrenchSuit.CLUB, FrenchType.ACE));
-	    c.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
-	    fail();
-	} catch (DifferentCardSuitException e) {
-	    // expected
-	}
+        try {
+            c.add(new Card(FrenchSuit.CLUB, FrenchType.ACE));
+            c.add(new Card(GermanSuit.GRUEN, GermanType.ASS));
+            fail();
+        } catch (DifferentCardSuitException e) {
+            // expected
+        }
     }
 
     @Test
     public void testAdd() {
-	Card frenchClubAce = new Card(FrenchSuit.CLUB, FrenchType.ACE);
-	c.add(frenchClubAce);
-	assertEquals(frenchClubAce, c.card(0));
+        Card frenchClubAce = new Card(FrenchSuit.CLUB, FrenchType.ACE);
+        c.add(frenchClubAce);
+        assertEquals(frenchClubAce, c.card(0));
     }
 
     @Test
     public void testAllCardsWithEmpty() {
-	assertNotNull(c.allCards());
-	assertTrue(c.allCards().isEmpty());
+        assertNotNull(c.allCards());
+        assertTrue(c.allCards().isEmpty());
     }
 
     @Test
     public void testCardNonExising() {
-	try {
-	    c.card(0);
-	} catch (CardNonExistingException e) {
-	    // expected
-	}
+        try {
+            c.card(0);
+        } catch (CardNonExistingException e) {
+            // expected
+        }
     }
 
 }

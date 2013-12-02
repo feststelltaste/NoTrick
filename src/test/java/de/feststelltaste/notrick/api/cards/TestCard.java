@@ -16,7 +16,7 @@ public class TestCard extends Card {
     public static final Card B3 = new TestCard(TestSuit.B, TestType.THREE);
 
     public TestCard(Suit suit, Type type) {
-	super(suit, type);
+        super(suit, type);
     }
 
 }

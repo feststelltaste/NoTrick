@@ -7,34 +7,33 @@ import de.feststelltaste.notrick.api.player.HumanPlayer;
 import de.feststelltaste.notrick.api.player.Player;
 
 public class ConsoleGame {
-    
+
     public ConsoleGame() {
-	Player hp = new HumanPlayer();
-	
-	
+        Player hp = new HumanPlayer();
+
     }
 
     public static void main(String[] argv) throws UnsupportedEncodingException {
-	String unicodeMessage = heart() + diamond() + club() + spade();
+        String unicodeMessage = heart() + diamond() + club() + spade();
 
-	PrintStream out = new PrintStream(System.out, true, "UTF-8");
-	out.println(unicodeMessage);
+        PrintStream out = new PrintStream(System.out, true, "UTF-8");
+        out.println(unicodeMessage);
     }
 
     private static String heart() {
-	return "\u2665";
+        return "\u2665";
     }
 
     private static String diamond() {
-	return "\u2666";
+        return "\u2666";
     }
 
     private static String club() {
-	return "\u2663";
+        return "\u2663";
     }
 
     private static String spade() {
-	return "\u2660";
+        return "\u2660";
     }
 
 }

@@ -6,7 +6,7 @@ public class TrickBasedScorer implements ScoreCounter {
 
     @Override
     public int determine(CardSet cards) {
-	return cards.size();
+        return cards.size();
     }
 
 }

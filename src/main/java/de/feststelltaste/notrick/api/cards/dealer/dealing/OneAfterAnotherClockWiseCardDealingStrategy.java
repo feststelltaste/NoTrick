@@ -11,23 +11,24 @@ public class OneAfterAnotherClockWiseCardDealingStrategy implements CardDealingS
     private int counter;
     private CardPartitionStrategy cardPartitioning;
 
-    public OneAfterAnotherClockWiseCardDealingStrategy(List<Player> players, CardPartitionStrategy cardPartitioning) {
-	this.players = players;
-	this.cardPartitioning = cardPartitioning;
+    public OneAfterAnotherClockWiseCardDealingStrategy(List<Player> players,
+            CardPartitionStrategy cardPartitioning) {
+        this.players = players;
+        this.cardPartitioning = cardPartitioning;
     }
 
     @Override
     public void deal() {
-	counter = 0;
-	while (cardPartitioning.hasCards()) {
-	    nextPlayer().take(cardPartitioning.nextPart());
-	}
+        counter = 0;
+        while (cardPartitioning.hasCards()) {
+            nextPlayer().take(cardPartitioning.nextPart());
+        }
     }
 
     private Player nextPlayer() {
-	Player nextPlayer = players.get(counter % players.size());
-	counter++;
-	return nextPlayer;
+        Player nextPlayer = players.get(counter % players.size());
+        counter++;
+        return nextPlayer;
     }
 
 }

@@ -1,6 +1,5 @@
 package de.feststelltaste.notrick.api.player;
 
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,12 +10,12 @@ public class HumanPlayerTest {
     @Before
     public void setUp() throws Exception {
     }
-    
+
     @Test
-    public void behaviour(){
-	HumanPlayer p = new HumanPlayer();
-	p.take(GermanCardFactory.create("S", "7"));
-	
+    public void behaviour() {
+        HumanPlayer p = new HumanPlayer();
+        p.take(GermanCardFactory.create("S", "7"));
+
     }
 
 }

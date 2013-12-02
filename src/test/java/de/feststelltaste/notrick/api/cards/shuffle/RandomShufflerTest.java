@@ -22,24 +22,24 @@ public class RandomShufflerTest {
 
     @Before
     public void setUp() throws Exception {
-	r = new RandomShuffler(new FrenchShortCardDeck(), new Random(1l));
+        r = new RandomShuffler(new FrenchShortCardDeck(), new Random(1l));
     }
-    
+
     @Test
-    public void createRandomShuffler(){
-	assertNotNull(new RandomShuffler(new TestCardDeck()));
+    public void createRandomShuffler() {
+        assertNotNull(new RandomShuffler(new TestCardDeck()));
     }
 
     @Test
     public void testShuffleCards() {
-	CardDeck c = r.shuffleCards();
-	List<Card> cards = c.asList();
-	Card firstTestCard = new Card(FrenchSuit.HEART, FrenchType.ACE);
-	Card middleTestCard = new Card(FrenchSuit.HEART, FrenchType.QUEEN);
-	Card lastTestCard = new Card(FrenchSuit.HEART, FrenchType.SEVEN);
-	assertEquals(firstTestCard, cards.get(0));
-	assertEquals(middleTestCard, cards.get(cards.size() / 2));
-	assertEquals(lastTestCard, cards.get(cards.size() - 1));
+        CardDeck c = r.shuffleCards();
+        List<Card> cards = c.asList();
+        Card firstTestCard = new Card(FrenchSuit.HEART, FrenchType.ACE);
+        Card middleTestCard = new Card(FrenchSuit.HEART, FrenchType.QUEEN);
+        Card lastTestCard = new Card(FrenchSuit.HEART, FrenchType.SEVEN);
+        assertEquals(firstTestCard, cards.get(0));
+        assertEquals(middleTestCard, cards.get(cards.size() / 2));
+        assertEquals(lastTestCard, cards.get(cards.size() - 1));
 
     }
 

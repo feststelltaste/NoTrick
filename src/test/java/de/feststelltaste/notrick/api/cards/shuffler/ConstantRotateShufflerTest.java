@@ -28,10 +28,10 @@ public class ConstantRotateShufflerTest {
 
     @Test
     public void testRandomShuffler() {
-	GermanCardDeck g = new GermanCardDeck();
-	Shuffler r = new ConstantRotateShuffler(g);
-	r.shuffleCards();
-	assertEquals(GermanSuit.GRUEN, g.nextCard().getSuit());
+        GermanCardDeck g = new GermanCardDeck();
+        Shuffler r = new ConstantRotateShuffler(g);
+        r.shuffleCards();
+        assertEquals(GermanSuit.GRUEN, g.nextCard().getSuit());
     }
 
 }

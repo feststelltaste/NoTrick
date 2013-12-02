@@ -8,18 +8,18 @@ public enum GermanSuit implements Suit {
     private int priority;
 
     private GermanSuit(String name, int priority) {
-	this.name = name;
-	this.priority = priority;
+        this.name = name;
+        this.priority = priority;
     }
 
     @Override
     public String getName() {
-	return name;
+        return name;
     }
 
     @Override
     public int getPriority() {
-	return priority;
+        return priority;
     }
 
 }

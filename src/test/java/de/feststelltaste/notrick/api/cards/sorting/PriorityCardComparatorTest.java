@@ -20,8 +20,8 @@ public class PriorityCardComparatorTest {
 
     @Test
     public void testCompare() {
-	PriorityCardComparator comparator = new PriorityCardComparator();
-	assertEquals(1, comparator.compare(highestCard, secondHighestCard));
+        PriorityCardComparator comparator = new PriorityCardComparator();
+        assertEquals(1, comparator.compare(highestCard, secondHighestCard));
     }
 
 }

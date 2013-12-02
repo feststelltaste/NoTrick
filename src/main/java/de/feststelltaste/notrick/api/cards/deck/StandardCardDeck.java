@@ -14,43 +14,43 @@ public abstract class StandardCardDeck implements CardDeck {
     private int decksize;
 
     protected StandardCardDeck(int decksize) {
-	this.decksize = decksize;
-	cards = new ArrayList<Card>(decksize);
-	init();
-	iterator = cards.iterator();
+        this.decksize = decksize;
+        cards = new ArrayList<Card>(decksize);
+        init();
+        iterator = cards.iterator();
     }
 
     @Override
     public List<Card> asList() {
-	return cards;
+        return cards;
     }
 
     @Override
     public int getDeckSize() {
-	return decksize;
+        return decksize;
     }
 
     @Override
     public boolean hasCards() {
-	return iterator.hasNext();
+        return iterator.hasNext();
     }
 
     protected abstract void init();
 
     @Override
     public Card nextCard() {
-	return iterator.next();
+        return iterator.next();
     }
 
     @Override
     public CardSet nextCards(int numberOfCards) {
-	int counter = 0;
-	CardSet returnedCards = new CardSet();
-	while (iterator.hasNext() && numberOfCards > counter) {
-	    returnedCards.add(iterator.next());
-	    counter++;
-	}
-	return returnedCards;
+        int counter = 0;
+        CardSet returnedCards = new CardSet();
+        while (iterator.hasNext() && numberOfCards > counter) {
+            returnedCards.add(iterator.next());
+            counter++;
+        }
+        return returnedCards;
     }
 
 }

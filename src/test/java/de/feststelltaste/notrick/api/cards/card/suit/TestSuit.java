@@ -1,6 +1,5 @@
 package de.feststelltaste.notrick.api.cards.card.suit;
 
-
 public enum TestSuit implements Suit {
 
     A("A", 0), B("B", 1);
@@ -9,18 +8,18 @@ public enum TestSuit implements Suit {
     private int priority;
 
     private TestSuit(String name, int priority) {
-	this.name = name;
-	this.priority = priority;
+        this.name = name;
+        this.priority = priority;
     }
 
     @Override
     public String getName() {
-	return name;
+        return name;
     }
 
     @Override
     public int getPriority() {
-	return priority;
+        return priority;
     }
 
 }

@@ -9,17 +9,17 @@ public class ConstantRotateShuffler implements Shuffler {
     private CardDeck cardDeck;
 
     public ConstantRotateShuffler(CardDeck cardDeck) {
-	this.cardDeck = cardDeck;
+        this.cardDeck = cardDeck;
     }
 
     @Override
     public CardDeck shuffleCards() {
-	Collections.rotate(cardDeck.asList(), -distanceToNextType());
-	return cardDeck;
+        Collections.rotate(cardDeck.asList(), -distanceToNextType());
+        return cardDeck;
     }
 
     private int distanceToNextType() {
-	return cardDeck.numberOfTypes();
+        return cardDeck.numberOfTypes();
     }
 
 }

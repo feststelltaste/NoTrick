@@ -23,20 +23,20 @@ public class FourCardsAtOnceAfterAnotherDealerTest {
 
     @Before
     public void setUp() throws Exception {
-	p1 = new Player();
-	p2 = new Player();
-	List<Player> p = new ArrayList<Player>();
-	p.add(p1);
-	p.add(p2);
-	c = new TestCardDeck();
-	d = new FourCardsAtOnceAfterAnotherDealer(c, p);
+        p1 = new Player();
+        p2 = new Player();
+        List<Player> p = new ArrayList<Player>();
+        p.add(p1);
+        p.add(p2);
+        c = new TestCardDeck();
+        d = new FourCardsAtOnceAfterAnotherDealer(c, p);
     }
 
     @Test
     public void testDeal() {
-	d.deal();
-	assertEquals(TestCard.A1, p1.showCards().asList().get(0));
-	assertEquals(TestCard.B2, p2.showCards().asList().get(0));
+        d.deal();
+        assertEquals(TestCard.A1, p1.showCards().asList().get(0));
+        assertEquals(TestCard.B2, p2.showCards().asList().get(0));
     }
 
 }

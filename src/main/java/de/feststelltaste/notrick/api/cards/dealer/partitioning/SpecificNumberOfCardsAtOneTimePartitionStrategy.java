@@ -8,19 +8,20 @@ public class SpecificNumberOfCardsAtOneTimePartitionStrategy implements CardPart
     private CardDeck cardDeck;
     private int numberOfCardsToPartition;
 
-    public SpecificNumberOfCardsAtOneTimePartitionStrategy(CardDeck cardDeck, int numberOfCardsToPartition) {
-	this.cardDeck = cardDeck;
-	this.numberOfCardsToPartition = numberOfCardsToPartition;
+    public SpecificNumberOfCardsAtOneTimePartitionStrategy(CardDeck cardDeck,
+            int numberOfCardsToPartition) {
+        this.cardDeck = cardDeck;
+        this.numberOfCardsToPartition = numberOfCardsToPartition;
     }
 
     @Override
     public CardSet nextPart() {
-	return cardDeck.nextCards(numberOfCardsToPartition);
+        return cardDeck.nextCards(numberOfCardsToPartition);
     }
 
     @Override
     public boolean hasCards() {
-	return cardDeck.hasCards();
+        return cardDeck.hasCards();
     }
 
 }

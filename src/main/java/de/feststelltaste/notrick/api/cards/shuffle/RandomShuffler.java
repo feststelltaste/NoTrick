@@ -11,18 +11,18 @@ public class RandomShuffler implements Shuffler {
     private Random random;
 
     public RandomShuffler(CardDeck cardDeck, Random random) {
-	this.cardDeck = cardDeck;
-	this.random = random;
+        this.cardDeck = cardDeck;
+        this.random = random;
     }
 
     public RandomShuffler(CardDeck cardDeck) {
-	this(cardDeck, new Random());
+        this(cardDeck, new Random());
     }
 
     @Override
     public CardDeck shuffleCards() {
-	Collections.shuffle(cardDeck.asList(), random);
-	return cardDeck;
+        Collections.shuffle(cardDeck.asList(), random);
+        return cardDeck;
     }
 
 }

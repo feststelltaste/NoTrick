@@ -9,28 +9,28 @@ public class FrenchShortCardDeck extends StandardCardDeck {
     private static final int DECKSIZE = 32;
 
     public FrenchShortCardDeck() {
-	super(DECKSIZE);
+        super(DECKSIZE);
     }
 
     @Override
     protected void init() {
-	for (FrenchSuit suit : FrenchSuit.values()) {
-	    for (FrenchType type : FrenchType.values()) {
-		if (type.getPriority() < FrenchType.SIX.getPriority()) {
-		    super.cards.add(new Card(suit, type));
-		}
-	    }
-	}
+        for (FrenchSuit suit : FrenchSuit.values()) {
+            for (FrenchType type : FrenchType.values()) {
+                if (type.getPriority() < FrenchType.SIX.getPriority()) {
+                    super.cards.add(new Card(suit, type));
+                }
+            }
+        }
     }
 
     @Override
     public int numberOfTypes() {
-	return DECKSIZE / numberOfSuits();
+        return DECKSIZE / numberOfSuits();
     }
 
     @Override
     public int numberOfSuits() {
-	return FrenchSuit.values().length;
+        return FrenchSuit.values().length;
     }
 
 }

@@ -16,45 +16,45 @@ public class MustPlaySameSuitIfAvailableRuleTest {
 
     @Test
     public void allCardsFitIfCardTableIsEmpty() {
-	Card clubAce = new Card(FrenchSuit.CLUB, FrenchType.ACE);
-	Card diamondAce = new Card(FrenchSuit.DIAMOND, FrenchType.KING);
-	CardSet cardsToFilter = new CardSet();
-	cardsToFilter.add(clubAce);
-	cardsToFilter.add(diamondAce);
+        Card clubAce = new Card(FrenchSuit.CLUB, FrenchType.ACE);
+        Card diamondAce = new Card(FrenchSuit.DIAMOND, FrenchType.KING);
+        CardSet cardsToFilter = new CardSet();
+        cardsToFilter.add(clubAce);
+        cardsToFilter.add(diamondAce);
 
-	m = new MustPlaySameSuitIfAvailableRule();
-	CardSet result = m.getPlayableCards(new CardSet(), cardsToFilter);
-	assertEquals(clubAce, result.asList().get(0));
-	assertEquals(diamondAce, result.asList().get(1));
+        m = new MustPlaySameSuitIfAvailableRule();
+        CardSet result = m.getPlayableCards(new CardSet(), cardsToFilter);
+        assertEquals(clubAce, result.asList().get(0));
+        assertEquals(diamondAce, result.asList().get(1));
 
     }
 
     @Test
     public void playsCardOfSameSuit() {
-	CardSet cardsToFilter = new CardSet();
-	Card clubAce = FrenchCardFactory.create("C", "A");
-	cardsToFilter.add(clubAce);
-	m = new MustPlaySameSuitIfAvailableRule();
+        CardSet cardsToFilter = new CardSet();
+        Card clubAce = FrenchCardFactory.create("C", "A");
+        cardsToFilter.add(clubAce);
+        m = new MustPlaySameSuitIfAvailableRule();
 
-	CardSet cardsOnTable = new CardSet();
-	cardsOnTable.add(FrenchCardFactory.create("C", "K"));
+        CardSet cardsOnTable = new CardSet();
+        cardsOnTable.add(FrenchCardFactory.create("C", "K"));
 
-	CardSet result = m.getPlayableCards(cardsOnTable, cardsToFilter);
-	assertEquals(clubAce, result.asList().get(0));
+        CardSet result = m.getPlayableCards(cardsOnTable, cardsToFilter);
+        assertEquals(clubAce, result.asList().get(0));
     }
 
     @Test
     public void playsDifferentSuitIfSuitNotAvailable() {
-	CardSet cardsToFilter = new CardSet();
-	Card diamondAce = FrenchCardFactory.create("D", "A");
-	cardsToFilter.add(diamondAce);
-	m = new MustPlaySameSuitIfAvailableRule();
+        CardSet cardsToFilter = new CardSet();
+        Card diamondAce = FrenchCardFactory.create("D", "A");
+        cardsToFilter.add(diamondAce);
+        m = new MustPlaySameSuitIfAvailableRule();
 
-	CardSet cardsOnTable = new CardSet();
-	cardsOnTable.add(FrenchCardFactory.create("C", "A"));
+        CardSet cardsOnTable = new CardSet();
+        cardsOnTable.add(FrenchCardFactory.create("C", "A"));
 
-	CardSet result = m.getPlayableCards(cardsOnTable, cardsToFilter);
-	assertEquals(diamondAce, result.asList().get(0));
+        CardSet result = m.getPlayableCards(cardsOnTable, cardsToFilter);
+        assertEquals(diamondAce, result.asList().get(0));
     }
 
 }

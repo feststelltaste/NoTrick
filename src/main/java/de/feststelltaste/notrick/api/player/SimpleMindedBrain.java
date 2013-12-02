@@ -10,12 +10,12 @@ public class SimpleMindedBrain implements Brain {
     private RuleSet rules;
 
     public SimpleMindedBrain(RuleSet rules) {
-	this.rules = rules;
+        this.rules = rules;
     }
 
     public Card decide(CardTable cardTable, Hand hand) {
-	CardSet playableCards = rules.follow(cardTable.allCards(), hand.getAllCards());
-	return playableCards.asList().get(0);
+        CardSet playableCards = rules.follow(cardTable.allCards(), hand.getAllCards());
+        return playableCards.asList().get(0);
     }
 
 }

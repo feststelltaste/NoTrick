@@ -10,10 +10,10 @@ public abstract class RuleSet {
     protected List<Rule> rules = new ArrayList<Rule>();
 
     public CardSet follow(CardSet alreadyPlayedCards, CardSet cardsOnHand) {
-	CardSet cardsAllowedToPlay = cardsOnHand;
-	for (Rule rule : rules) {
-	    cardsAllowedToPlay = rule.getPlayableCards(alreadyPlayedCards, cardsAllowedToPlay);
-	}
-	return cardsAllowedToPlay;
+        CardSet cardsAllowedToPlay = cardsOnHand;
+        for (Rule rule : rules) {
+            cardsAllowedToPlay = rule.getPlayableCards(alreadyPlayedCards, cardsAllowedToPlay);
+        }
+        return cardsAllowedToPlay;
     }
 }

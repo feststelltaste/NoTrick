@@ -17,37 +17,38 @@ public abstract class StandardCardDeckTest {
     @Test
     public void checkConsitentCardDeckOrder() {
 
-	int i = 0;
-	int suit = 0;
-	int type = 0;
+        int i = 0;
+        int suit = 0;
+        int type = 0;
 
-	while (cardDeck.hasCards()) {
-	    Card c = cardDeck.nextCard();
-	    suit = i / cardDeck.numberOfTypes();
-	    type = i % cardDeck.numberOfTypes();
-	    // for debugging purposes
-	    // System.out.println(suit + ":" + c.getSuit().getPriority() + "|" + type + ":" + c.getType().getPriority());
-	    assertEquals(suit, c.getSuit().getPriority());
-	    assertEquals(type, c.getType().getPriority());
-	    i++;
-	}
+        while (cardDeck.hasCards()) {
+            Card c = cardDeck.nextCard();
+            suit = i / cardDeck.numberOfTypes();
+            type = i % cardDeck.numberOfTypes();
+            // for debugging purposes
+            // System.out.println(suit + ":" + c.getSuit().getPriority() + "|" +
+            // type + ":" + c.getType().getPriority());
+            assertEquals(suit, c.getSuit().getPriority());
+            assertEquals(type, c.getType().getPriority());
+            i++;
+        }
     }
 
     @Test
     public void checkCardHashCodes() {
-	Set<Card> cards = new HashSet<Card>(cardDeck.asList());
-	assertEquals(cardDeck.getDeckSize(), cards.size());
+        Set<Card> cards = new HashSet<Card>(cardDeck.asList());
+        assertEquals(cardDeck.getDeckSize(), cards.size());
     }
 
     @Test
     public void testInitCardDeckOrderingWithComparator() {
-	PriorityCardComparator comparator = new PriorityCardComparator();
-	Card formerCard = cardDeck.nextCard();
-	while (cardDeck.hasCards()) {
-	    Card currentCard = cardDeck.nextCard();
-	    assertEquals(1, comparator.compare(formerCard, currentCard));
-	    formerCard = currentCard;
-	}
+        PriorityCardComparator comparator = new PriorityCardComparator();
+        Card formerCard = cardDeck.nextCard();
+        while (cardDeck.hasCards()) {
+            Card currentCard = cardDeck.nextCard();
+            assertEquals(1, comparator.compare(formerCard, currentCard));
+            formerCard = currentCard;
+        }
     }
 
 }

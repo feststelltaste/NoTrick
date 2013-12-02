@@ -7,32 +7,32 @@ public class MustPlaySameSuitIfAvailableRule implements Rule {
 
     @Override
     public CardSet getPlayableCards(CardSet alreadyPlayedCards, CardSet cardsOnHand) {
-	CardSet playableCards = cardsOnHand;
+        CardSet playableCards = cardsOnHand;
 
-	if (isCardAlreadyPlayed(alreadyPlayedCards)) {
-	    Suit suitThatsOnTable = suitOfFirstPlayedCard(alreadyPlayedCards);
-	    if (isSuitOnHand(suitThatsOnTable, cardsOnHand)) {
-		playableCards = cardsOfSameSuit(suitThatsOnTable, cardsOnHand);
-	    }
-	}
+        if (isCardAlreadyPlayed(alreadyPlayedCards)) {
+            Suit suitThatsOnTable = suitOfFirstPlayedCard(alreadyPlayedCards);
+            if (isSuitOnHand(suitThatsOnTable, cardsOnHand)) {
+                playableCards = cardsOfSameSuit(suitThatsOnTable, cardsOnHand);
+            }
+        }
 
-	return playableCards;
+        return playableCards;
     }
 
     private boolean isCardAlreadyPlayed(CardSet alreadyPlayedCards) {
-	return !alreadyPlayedCards.isEmpty();
+        return !alreadyPlayedCards.isEmpty();
     }
 
     private Suit suitOfFirstPlayedCard(CardSet alreadyPlayedCards) {
-	return alreadyPlayedCards.asList().get(0).getSuit();
+        return alreadyPlayedCards.asList().get(0).getSuit();
     }
 
     private CardSet cardsOfSameSuit(Suit suitOnTable, CardSet cardsOnHand) {
-	return cardsOnHand.filter(suitOnTable);
+        return cardsOnHand.filter(suitOnTable);
     }
 
     private boolean isSuitOnHand(Suit suitOfFirstCard, CardSet cardsOnHand) {
-	return cardsOnHand.has(suitOfFirstCard);
+        return cardsOnHand.has(suitOfFirstCard);
     }
 
 }

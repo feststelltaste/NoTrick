@@ -18,20 +18,20 @@ public class SpecificNumberOfCardsAtOneTimePartitionStrategyTest {
 
     @Before
     public void setUp() throws Exception {
-	sut = new SpecificNumberOfCardsAtOneTimePartitionStrategy(new GermanCardDeck(), FOUR_CARDS);
+        sut = new SpecificNumberOfCardsAtOneTimePartitionStrategy(new GermanCardDeck(), FOUR_CARDS);
     }
 
     @Test
     public void testNextPart() {
-	CardSet firstPart = sut.nextPart();
-	CardSet lastPart = null;
-	while (sut.hasCards())
-	    lastPart = sut.nextPart();
+        CardSet firstPart = sut.nextPart();
+        CardSet lastPart = null;
+        while (sut.hasCards())
+            lastPart = sut.nextPart();
 
-	assertEquals(4, firstPart.size());
-	Card lastCardOfLastPlayer = lastPart.asList().get(lastPart.size() - 1);
-	assertEquals(GermanSuit.SCHELLEN, lastCardOfLastPlayer.getSuit());
-	assertEquals(GermanType.SIEBNER, lastCardOfLastPlayer.getType());
+        assertEquals(4, firstPart.size());
+        Card lastCardOfLastPlayer = lastPart.asList().get(lastPart.size() - 1);
+        assertEquals(GermanSuit.SCHELLEN, lastCardOfLastPlayer.getSuit());
+        assertEquals(GermanType.SIEBNER, lastCardOfLastPlayer.getType());
     }
 
 }

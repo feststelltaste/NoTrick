@@ -13,6 +13,6 @@ public class CardSetDataProvider {
         c.add(TestCard.B2);
         c.add(TestCard.B3);
         return c;
-       }
+    }
 
 }

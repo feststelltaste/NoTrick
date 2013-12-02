@@ -10,62 +10,62 @@ public class Card implements Comparable<Card> {
     private Type type;
 
     public Card(Suit suit, Type type) {
-	this.suit = suit;
-	this.type = type;
+        this.suit = suit;
+        this.type = type;
     }
 
     public Suit getSuit() {
-	return suit;
+        return suit;
     }
 
     @Override
     public int hashCode() {
-	int hash = 31;
-	hash = hash * 17 + (this.type != null ? type.getPriority() : 0);
-	hash = hash * 23 + (this.type != null ? suit.getPriority() : 0);
-	return hash;
+        int hash = 31;
+        hash = hash * 17 + (this.type != null ? type.getPriority() : 0);
+        hash = hash * 23 + (this.type != null ? suit.getPriority() : 0);
+        return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj)
-	    return true;
-	if (obj == null)
-	    return false;
-	// Check also for child classes. Enables easier testing on equality.
-	// Note: In production environments, there will be only one card type.
-	if (!(obj instanceof Card))
-	    return false;
-	Card other = (Card) obj;
-	if (suit == null) {
-	    if (other.suit != null)
-		return false;
-	} else if (!suit.equals(other.suit))
-	    return false;
-	if (type == null) {
-	    if (other.type != null)
-		return false;
-	} else if (!type.equals(other.type))
-	    return false;
-	return true;
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        // Check also for child classes. Enables easier testing on equality.
+        // Note: In production environments, there will be only one card type.
+        if (!(obj instanceof Card))
+            return false;
+        Card other = (Card) obj;
+        if (suit == null) {
+            if (other.suit != null)
+                return false;
+        } else if (!suit.equals(other.suit))
+            return false;
+        if (type == null) {
+            if (other.type != null)
+                return false;
+        } else if (!type.equals(other.type))
+            return false;
+        return true;
     }
 
     public String getName() {
-	return suit.getName() + type.getName().toLowerCase();
+        return suit.getName() + type.getName().toLowerCase();
     }
 
     public Type getType() {
-	return type;
+        return type;
     }
 
     @Override
     public String toString() {
-	return suit.getPriority() + ":" + type.getPriority() + ": " + getName();
+        return suit.getPriority() + ":" + type.getPriority() + ": " + getName();
     }
 
     @Override
     public int compareTo(Card o) {
-	return -1 * new PriorityCardComparator().compare(this, o);
+        return -1 * new PriorityCardComparator().compare(this, o);
     }
 
 }

@@ -10,22 +10,22 @@ public class ScoringPile {
     private ScoreCounter score;
 
     public ScoringPile(ScoreCounter score) {
-	this.score = score;
+        this.score = score;
     }
 
     public void add(CardSet cardSet) {
-	for (Card card : cardSet) {
-	    add(card);
-	}
+        for (Card card : cardSet) {
+            add(card);
+        }
     }
 
     public void add(Card card) {
-	this.cards.add(card);
+        this.cards.add(card);
 
     }
 
     public int countScore() {
-	return score.determine(cards);
+        return score.determine(cards);
     }
 
 }

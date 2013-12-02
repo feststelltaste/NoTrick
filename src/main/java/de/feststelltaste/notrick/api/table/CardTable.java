@@ -13,34 +13,34 @@ public class CardTable {
     private Class<? extends Type> cardSetType;
 
     public void add(Card card) {
-	checkCard(card);
-	cardsOnTable.add(card);
+        checkCard(card);
+        cardsOnTable.add(card);
     }
 
     private void checkCard(Card card) {
-	if (card == null) {
-	    throw new CardNonExistingException();
-	} else if (!isFromSameCardType(card)) {
-	    throw new DifferentCardSuitException();
-	}
+        if (card == null) {
+            throw new CardNonExistingException();
+        } else if (!isFromSameCardType(card)) {
+            throw new DifferentCardSuitException();
+        }
     }
 
     private boolean isFromSameCardType(Card card) {
-	if (cardSetType == null) {
-	    cardSetType = card.getType().getClass();
-	}
-	return cardSetType.isInstance(card.getType());
+        if (cardSetType == null) {
+            cardSetType = card.getType().getClass();
+        }
+        return cardSetType.isInstance(card.getType());
     }
 
     public CardSet allCards() {
-	return cardsOnTable;
+        return cardsOnTable;
     }
 
     public Card card(int position) {
-	if (position >= cardsOnTable.size())
-	    throw new CardNonExistingException();
+        if (position >= cardsOnTable.size())
+            throw new CardNonExistingException();
 
-	return cardsOnTable.asList().get(position);
+        return cardsOnTable.asList().get(position);
     }
 
 }

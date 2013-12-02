@@ -20,34 +20,34 @@ public class MustBeCardTypeNeighbourTest {
 
     @Before
     public void setUp() throws Exception {
-	cardsOnHand = createClubsCardsOnly();
-	alreadyPlayedCards = new CardSet();
-	alreadyPlayedCards.add(FrenchCardFactory.create("C", "Q"));
-	m = new MustBeCardTypeNeighbour();
+        cardsOnHand = createClubsCardsOnly();
+        alreadyPlayedCards = new CardSet();
+        alreadyPlayedCards.add(FrenchCardFactory.create("C", "Q"));
+        m = new MustBeCardTypeNeighbour();
     }
 
     private CardSet createClubsCardsOnly() {
-	CardSet cards = new CardSet();
-	cards.add(FrenchCardFactory.create("C", "A"));
-	cards.add(FrenchCardFactory.create("C", "K"));
-	return cards;
+        CardSet cards = new CardSet();
+        cards.add(FrenchCardFactory.create("C", "A"));
+        cards.add(FrenchCardFactory.create("C", "K"));
+        return cards;
     }
 
     @Test
     public void testGetPlayableCardsCardTable() {
-	CardSet result = m.getPlayableCards(alreadyPlayedCards, cardsOnHand);
-	assertEquals(FrenchType.KING, result.asList().get(0).getType());
+        CardSet result = m.getPlayableCards(alreadyPlayedCards, cardsOnHand);
+        assertEquals(FrenchType.KING, result.asList().get(0).getType());
     }
 
     @Test
     public void testGetPlayableCardsCardTableWithGapBetweenCards() {
-	alreadyPlayedCards.add(FrenchCardFactory.create("C", "A"));
-	CardSet cardsOnHand = new CardSet();
-	Card queen = new Card(FrenchSuit.CLUB, FrenchType.QUEEN);
-	cardsOnHand.add(queen);
-	m = new MustBeCardTypeNeighbour();
-	CardSet result = m.getPlayableCards(alreadyPlayedCards, cardsOnHand);
-	assertTrue(result.isEmpty());
+        alreadyPlayedCards.add(FrenchCardFactory.create("C", "A"));
+        CardSet cardsOnHand = new CardSet();
+        Card queen = new Card(FrenchSuit.CLUB, FrenchType.QUEEN);
+        cardsOnHand.add(queen);
+        m = new MustBeCardTypeNeighbour();
+        CardSet result = m.getPlayableCards(alreadyPlayedCards, cardsOnHand);
+        assertTrue(result.isEmpty());
     }
 
 }

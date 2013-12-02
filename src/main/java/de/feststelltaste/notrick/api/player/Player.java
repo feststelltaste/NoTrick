@@ -11,16 +11,16 @@ public class Player {
     private String name;
 
     public Player() {
-	this("Player");
+        this("Player");
     }
 
     public Player(String name) {
-	this(name, new Hand(8));
+        this(name, new Hand(8));
     }
 
     public Player(String name, Hand hand) {
-	this.name = name;
-	this.hand = hand;
+        this.name = name;
+        this.hand = hand;
 
     }
 
@@ -29,23 +29,23 @@ public class Player {
     }
 
     public Card play() {
-	return null;
+        return null;
 
     }
 
     public CardSet showCards() {
-	return hand.getAllCards();
+        return hand.getAllCards();
     }
 
     public void take(CardSet cardSet) {
-	this.hand.add(cardSet);
+        this.hand.add(cardSet);
     }
 
     public void take(Card card) {
-	this.hand.add(card);
+        this.hand.add(card);
     }
 
     public String getName() {
-	return name;
+        return name;
     }
 }
