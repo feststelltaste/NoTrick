@@ -2,7 +2,7 @@ package de.feststelltaste.notrick.api.player;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
-import de.feststelltaste.notrick.api.cards.scores.ScoreKeeper;
+import de.feststelltaste.notrick.api.scoring.ScoreKeeper;
 
 public class ScoringPile {
 

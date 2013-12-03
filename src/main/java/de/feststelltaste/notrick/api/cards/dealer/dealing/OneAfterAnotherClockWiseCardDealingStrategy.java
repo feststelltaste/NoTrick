@@ -1,17 +1,16 @@
 package de.feststelltaste.notrick.api.cards.dealer.dealing;
 
-import java.util.List;
-
 import de.feststelltaste.notrick.api.cards.dealer.partitioning.CardPartitionStrategy;
 import de.feststelltaste.notrick.api.player.Player;
+import de.feststelltaste.notrick.api.player.Players;
 
 public class OneAfterAnotherClockWiseCardDealingStrategy implements CardDealingStrategy {
 
-    private List<Player> players;
+    private Players players;
     private int counter;
     private CardPartitionStrategy cardPartitioning;
 
-    public OneAfterAnotherClockWiseCardDealingStrategy(List<Player> players,
+    public OneAfterAnotherClockWiseCardDealingStrategy(Players players,
             CardPartitionStrategy cardPartitioning) {
         this.players = players;
         this.cardPartitioning = cardPartitioning;

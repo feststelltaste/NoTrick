@@ -4,11 +4,15 @@ import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
+import de.feststelltaste.notrick.api.game.Play;
+import de.feststelltaste.notrick.api.rules.RuleSet;
 
-public class Player {
+public abstract class Player {
 
-    private Hand hand;
-    private String name;
+    protected Hand hand;
+    protected String name;
+    protected RuleSet rules;
+    private PlayerScore score = new PlayerScore();
 
     public Player() {
         this("Player");
@@ -28,10 +32,17 @@ public class Player {
 
     }
 
-    public Card play() {
-        return null;
-
+    public Card play(CardSet alreadyPlayedCards) {
+        CardSet playableCards = followRules(alreadyPlayedCards, hand.getAllCards());
+        Card cardToBePlayed = decide(alreadyPlayedCards, playableCards);
+        return hand.take(cardToBePlayed);
     }
+
+    private CardSet followRules(CardSet alreadyPlayedCards, CardSet cardSet) {
+        return rules.follow(alreadyPlayedCards, hand.getAllCards());
+    }
+
+    protected abstract Card decide(CardSet alreadyPlayedCards, CardSet playableCards);
 
     public CardSet showCards() {
         return hand.getAllCards();
@@ -44,8 +55,30 @@ public class Player {
     public void take(Card card) {
         this.hand.add(card);
     }
+    
+    public boolean hasCards() {
+        return hand.size() > 0;
+    }
 
     public String getName() {
         return name;
     }
+
+    public void learnRules(RuleSet rules) {
+        this.rules = rules;
+    }
+    
+    public void addScore(Play play, int currentScore) {
+        this.score.addScore(play, currentScore);
+        
+    }
+
+    public int getOverallScore() {
+        return score.getOverallScore();
+    }
+
+    public int getCurrentScore() {
+        return score.getCurrentScore();
+    }
+
 }

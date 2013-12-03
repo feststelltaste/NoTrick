@@ -2,28 +2,26 @@ package de.feststelltaste.notrick.api.cards.dealer.dealing;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.TestCard;
 import de.feststelltaste.notrick.api.cards.card.Card;
-import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
 import de.feststelltaste.notrick.api.cards.dealer.partitioning.CardPartitionStrategy;
 import de.feststelltaste.notrick.api.cards.dealer.partitioning.SpecificNumberOfCardsAtOneTimePartitionStrategy;
-import de.feststelltaste.notrick.api.cards.deck.FrenchShortCardDeck;
 import de.feststelltaste.notrick.api.cards.deck.TestCardDeck;
+import de.feststelltaste.notrick.api.player.Hand;
 import de.feststelltaste.notrick.api.player.Player;
+import de.feststelltaste.notrick.api.player.Players;
+import de.feststelltaste.notrick.api.player.ai.ComputerPlayer;
 
 public class OneAfterAnotherClockWiseCardDealingStrategyTest {
 
     @Test
     public void testDeal() {
-        Player firstPlayer = new Player("first");
-        Player secondPlayer = new Player("second");
+        Player firstPlayer = new ComputerPlayer("first", new Hand(8));
+        Player secondPlayer = new ComputerPlayer("second", new Hand(8));
 
-        List<Player> players = new ArrayList<Player>();
+        Players players = new Players();
         players.add(firstPlayer);
         players.add(secondPlayer);
 

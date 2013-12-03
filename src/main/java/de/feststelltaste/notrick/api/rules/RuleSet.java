@@ -16,4 +16,5 @@ public abstract class RuleSet {
         }
         return cardsAllowedToPlay;
     }
+    
 }

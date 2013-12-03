@@ -1,4 +1,4 @@
-package de.feststelltaste.notrick.api.cards.scores;
+package de.feststelltaste.notrick.api.scoring;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import de.feststelltaste.notrick.api.cards.card.type.Type;
  * Returns the score according to the configured scores per card, suit or type.
  * 
  */
-public class ConfigurableScorer implements ScoreKeeper {
+public class ConfigurableScorerKeeper implements ScoreKeeper {
 
     private final Map<Card, Integer> scorePerCard;
     private final Map<Suit, Integer> scorePerSuit;
     private final Map<Type, Integer> scorePerType;
 
     // private for Builder pattern
-    private ConfigurableScorer(ConfigurableScorerBuilder builder) {
+    private ConfigurableScorerKeeper(ConfigurableScorerKeeperBuilder builder) {
         this.scorePerCard = builder.scorePerCard;
         this.scorePerSuit = builder.scorePerSuit;
         this.scorePerType = builder.scorePerType;
@@ -42,29 +42,29 @@ public class ConfigurableScorer implements ScoreKeeper {
         return score;
     }
 
-    public static class ConfigurableScorerBuilder {
+    public static class ConfigurableScorerKeeperBuilder {
 
         private Map<Card, Integer> scorePerCard = new HashMap<Card, Integer>();
         private Map<Suit, Integer> scorePerSuit = new HashMap<Suit, Integer>();
         private Map<Type, Integer> scorePerType = new HashMap<Type, Integer>();
 
-        public ConfigurableScorerBuilder add(Card card, int scoreForCard) {
+        public ConfigurableScorerKeeperBuilder add(Card card, int scoreForCard) {
             this.scorePerCard.put(card, Integer.valueOf(scoreForCard));
             return this;
         }
 
-        public ConfigurableScorerBuilder add(Suit suit, int scoreForEachCardOfGivenSuit) {
+        public ConfigurableScorerKeeperBuilder add(Suit suit, int scoreForEachCardOfGivenSuit) {
             this.scorePerSuit.put(suit, Integer.valueOf(scoreForEachCardOfGivenSuit));
             return this;
         }
 
-        public ConfigurableScorerBuilder add(Type type, int scoreForWachCardOfGivenType) {
+        public ConfigurableScorerKeeperBuilder add(Type type, int scoreForWachCardOfGivenType) {
             this.scorePerType.put(type, Integer.valueOf(scoreForWachCardOfGivenType));
             return this;
         }
 
-        public ConfigurableScorer build() {
-            return new ConfigurableScorer(this);
+        public ConfigurableScorerKeeper build() {
+            return new ConfigurableScorerKeeper(this);
         }
     }
 

@@ -1,4 +1,4 @@
-package de.feststelltaste.notrick.api;
+package de.feststelltaste.notrick.api.scoring;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,7 +6,11 @@ import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.TestCard;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
+import de.feststelltaste.notrick.api.player.Hand;
 import de.feststelltaste.notrick.api.player.Player;
+import de.feststelltaste.notrick.api.player.Players;
+import de.feststelltaste.notrick.api.player.ai.ComputerPlayer;
+import de.feststelltaste.notrick.api.scoring.HighestTypeOfFirstPlayedSuitWinner;
 
 public class HighestTypeOfFirstPlayedSuitWinnerTest {
 
@@ -17,17 +21,17 @@ public class HighestTypeOfFirstPlayedSuitWinnerTest {
         cardsOfDeal.add(TestCard.A2);
         cardsOfDeal.add(TestCard.A1);
         cardsOfDeal.add(TestCard.B2);
-        OrderedPlayers players = createThreePlayers();
+        Players players = createThreePlayers();
         Player winner = w.determineWinner(cardsOfDeal, players);
         assertEquals(players.get(1), winner);
 
     }
 
-    private OrderedPlayers createThreePlayers() {
-        OrderedPlayers players = new OrderedPlayers();
-        Player p1 = new Player();
-        Player p2 = new Player();
-        Player p3 = new Player();
+    private Players createThreePlayers() {
+        Players players = new Players();
+        Player p1 = new ComputerPlayer("p1", new Hand(8));
+        Player p2 = new ComputerPlayer("p2", new Hand(8));
+        Player p3 = new ComputerPlayer("p3", new Hand(8));
         players.add(p1);
         players.add(p2);
         players.add(p3);

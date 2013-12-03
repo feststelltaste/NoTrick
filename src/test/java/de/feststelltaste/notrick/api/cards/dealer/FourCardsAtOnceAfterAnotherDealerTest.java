@@ -2,41 +2,32 @@ package de.feststelltaste.notrick.api.cards.dealer;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.TestCard;
 import de.feststelltaste.notrick.api.cards.deck.CardDeck;
 import de.feststelltaste.notrick.api.cards.deck.TestCardDeck;
+import de.feststelltaste.notrick.api.player.Hand;
 import de.feststelltaste.notrick.api.player.Player;
+import de.feststelltaste.notrick.api.player.Players;
+import de.feststelltaste.notrick.api.player.ai.ComputerPlayer;
 
 public class FourCardsAtOnceAfterAnotherDealerTest {
 
-    Player p1;
-    Player p2;
-    CardDeck c;
-
-    FourCardsAtOnceAfterAnotherDealer d;
-
-    @Before
-    public void setUp() throws Exception {
-        p1 = new Player();
-        p2 = new Player();
-        List<Player> p = new ArrayList<Player>();
-        p.add(p1);
-        p.add(p2);
-        c = new TestCardDeck();
-        d = new FourCardsAtOnceAfterAnotherDealer(c, p);
-    }
-
     @Test
     public void testDeal() {
+        CardDeck cardDeck = new TestCardDeck();
+        Player player1 = new ComputerPlayer("p1",new Hand(8));
+        Player player2 = new ComputerPlayer("p2",new Hand(8));
+        Players players=  new Players();
+        players.add(player1);
+        players.add(player2);
+        Dealer d = new FourCardsAtOnceAfterAnotherDealer(cardDeck, players);
+        
         d.deal();
-        assertEquals(TestCard.A1, p1.showCards().asList().get(0));
-        assertEquals(TestCard.B2, p2.showCards().asList().get(0));
+        
+        assertEquals(TestCard.A1, player1.showCards().asList().get(0));
+        assertEquals(TestCard.B2, player2.showCards().asList().get(0));
     }
 
 }

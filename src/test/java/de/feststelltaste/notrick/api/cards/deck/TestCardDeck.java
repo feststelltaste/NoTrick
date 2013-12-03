@@ -1,10 +1,8 @@
 package de.feststelltaste.notrick.api.cards.deck;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
-import de.feststelltaste.notrick.api.cards.card.suit.FrenchSuit;
 import de.feststelltaste.notrick.api.cards.card.suit.TestSuit;
 import de.feststelltaste.notrick.api.cards.card.suit.TestType;
-import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
 
 public class TestCardDeck extends StandardCardDeck {
 

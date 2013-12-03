@@ -10,13 +10,13 @@ import de.feststelltaste.notrick.api.cards.card.suit.Suit;
 
 public class CardSet implements Iterable<Card> {
 
-    private Collection<Card> cards = new LinkedList<Card>();
+    private List<Card> cards = new LinkedList<Card>();
 
     public CardSet() {
     }
 
     public CardSet(Collection<Card> cardsAsList) {
-        this.cards.addAll(cardsAsList);
+        cards.addAll(cardsAsList);
     }
 
     public void add(Card card) {
@@ -58,6 +58,15 @@ public class CardSet implements Iterable<Card> {
         }
 
         return cardsWithSuit;
+    }
+
+    public Card remove(Card cardToBePlayed) {
+        int indexOfCard = cards.indexOf(cardToBePlayed);
+        return cards.remove(indexOfCard);
+    }
+
+    public void clear() {
+        cards.clear();
     }
 
 }

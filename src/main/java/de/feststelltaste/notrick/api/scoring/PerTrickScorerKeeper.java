@@ -1,4 +1,4 @@
-package de.feststelltaste.notrick.api.cards.scores;
+package de.feststelltaste.notrick.api.scoring;
 
 import de.feststelltaste.notrick.api.cards.card.CardSet;
 

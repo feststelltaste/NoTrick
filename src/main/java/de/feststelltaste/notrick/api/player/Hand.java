@@ -50,4 +50,7 @@ public class Hand {
         this.cardSet.add(card);
     }
 
+    public Card take(Card cardToBePlayed) {
+      return cardSet.remove(cardToBePlayed);
+    }
 }

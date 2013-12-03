@@ -11,6 +11,7 @@ import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.FrenchCardFactory;
 import de.feststelltaste.notrick.api.cards.card.suit.FrenchSuit;
 import de.feststelltaste.notrick.api.cards.card.type.FrenchType;
+import de.feststelltaste.notrick.api.rules.MustBeCardTypeNeighbour;
 
 public class MustBeCardTypeNeighbourTest {
 

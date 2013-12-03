@@ -43,4 +43,9 @@ public class CardTable {
         return cardsOnTable.asList().get(position);
     }
 
+    public void clear() {
+        cardsOnTable.clear();
+        
+    }
+
 }

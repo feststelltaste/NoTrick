@@ -1,8 +1,9 @@
 package de.feststelltaste.notrick.api.rules;
 
-public class TrickTakingRules extends RuleSet {
 
-    public TrickTakingRules() {
+public class NoTrickRules extends RuleSet {
+
+    public NoTrickRules() {
         super.rules.add(new MustPlaySameSuitIfAvailableRule());
     }
 

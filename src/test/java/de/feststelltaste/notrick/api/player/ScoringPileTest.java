@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.TestCard;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
-import de.feststelltaste.notrick.api.cards.scores.PerTrickScorerKeeper;
+import de.feststelltaste.notrick.api.scoring.PerTrickScorerKeeper;
 
 public class ScoringPileTest {
 
