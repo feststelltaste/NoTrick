@@ -3,8 +3,8 @@ package de.feststelltaste.notrick.presentation.console;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
-import de.feststelltaste.notrick.api.player.HumanPlayer;
 import de.feststelltaste.notrick.api.player.Player;
+import de.feststelltaste.notrick.api.player.human.HumanPlayer;
 
 public class ConsoleGame {
 

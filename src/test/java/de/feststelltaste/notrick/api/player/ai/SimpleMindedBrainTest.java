@@ -1,4 +1,4 @@
-package de.feststelltaste.notrick.api.player;
+package de.feststelltaste.notrick.api.player.ai;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.GermanCardFactory;
+import de.feststelltaste.notrick.api.player.Hand;
+import de.feststelltaste.notrick.api.player.ai.SimpleMindedBrain;
 import de.feststelltaste.notrick.api.rules.TrickTakingRules;
 import de.feststelltaste.notrick.api.table.CardTable;
 

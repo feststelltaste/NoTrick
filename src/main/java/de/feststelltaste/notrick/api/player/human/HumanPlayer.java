@@ -1,8 +1,9 @@
-package de.feststelltaste.notrick.api.player;
+package de.feststelltaste.notrick.api.player.human;
 
 import org.apache.log4j.Logger;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
+import de.feststelltaste.notrick.api.player.Player;
 
 public class HumanPlayer extends Player {
 

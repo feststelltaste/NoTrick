@@ -1,9 +1,10 @@
-package de.feststelltaste.notrick.api.player;
+package de.feststelltaste.notrick.api.player.human;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.card.GermanCardFactory;
+import de.feststelltaste.notrick.api.player.human.HumanPlayer;
 
 public class HumanPlayerTest {
 

@@ -1,7 +1,9 @@
-package de.feststelltaste.notrick.api.player;
+package de.feststelltaste.notrick.api.player.ai;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
+import de.feststelltaste.notrick.api.player.Hand;
+import de.feststelltaste.notrick.api.player.ai.Brain;
 import de.feststelltaste.notrick.api.rules.RuleSet;
 import de.feststelltaste.notrick.api.table.CardTable;
 
