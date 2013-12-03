@@ -59,15 +59,13 @@ public class ConfigurableScorerTest {
         ConfigurableScorer configurableScorer = builder.build();
         assertEquals(3, configurableScorer.determine(createFullCardSet()));
     }
-    
+
     @Test
-    public void determinesScoreOfSuitAndTypes(){
+    public void determinesScoreOfSuitAndTypes() {
         builder.add(TestSuit.A, 5);
         builder.add(TestType.ONE, 100);
         ConfigurableScorer configurableScorer = builder.build();
         assertEquals(215, configurableScorer.determine(createFullCardSet()));
-        
-        
     }
 
     private CardSet createFullCardSet() {
