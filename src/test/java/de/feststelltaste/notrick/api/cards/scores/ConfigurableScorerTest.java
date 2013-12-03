@@ -8,6 +8,8 @@ import org.junit.Test;
 import de.feststelltaste.notrick.api.cards.CardSetDataProvider;
 import de.feststelltaste.notrick.api.cards.TestCard;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
+import de.feststelltaste.notrick.api.cards.card.suit.TestSuit;
+import de.feststelltaste.notrick.api.cards.card.suit.TestType;
 import de.feststelltaste.notrick.api.cards.scores.ConfigurableScorer.ConfigurableScorerBuilder;
 
 public class ConfigurableScorerTest {
@@ -56,6 +58,16 @@ public class ConfigurableScorerTest {
         builder.add(TestCard.A1.getSuit(), 1);
         ConfigurableScorer configurableScorer = builder.build();
         assertEquals(3, configurableScorer.determine(createFullCardSet()));
+    }
+    
+    @Test
+    public void determinesScoreOfSuitAndTypes(){
+        builder.add(TestSuit.A, 5);
+        builder.add(TestType.ONE, 100);
+        ConfigurableScorer configurableScorer = builder.build();
+        assertEquals(215, configurableScorer.determine(createFullCardSet()));
+        
+        
     }
 
     private CardSet createFullCardSet() {

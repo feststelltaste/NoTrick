@@ -14,7 +14,6 @@ import de.feststelltaste.notrick.api.cards.card.type.Type;
  */
 public class ConfigurableScorer implements ScoreKeeper {
 
-    private boolean addAllScores = false;
     private final Map<Card, Integer> scorePerCard;
     private final Map<Suit, Integer> scorePerSuit;
     private final Map<Type, Integer> scorePerType;
@@ -32,21 +31,12 @@ public class ConfigurableScorer implements ScoreKeeper {
         for (Card card : cards) {
             if (scorePerCard.containsKey(card)) {
                 score += scorePerCard.get(card);
-                if (!addAllScores) {
-                    continue;
-                }
             }
             if (scorePerSuit.containsKey(card.getSuit())) {
                 score += scorePerSuit.get(card.getSuit());
-                if (!addAllScores) {
-                    continue;
-                }
             }
             if (scorePerType.containsKey(card.getType())) {
                 score += scorePerType.get(card.getType());
-                if (!addAllScores) {
-                    continue;
-                }
             }
         }
         return score;
