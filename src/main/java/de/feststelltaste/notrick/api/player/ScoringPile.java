@@ -2,14 +2,14 @@ package de.feststelltaste.notrick.api.player;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
-import de.feststelltaste.notrick.api.cards.scores.ScoreCounter;
+import de.feststelltaste.notrick.api.cards.scores.ScoreKeeper;
 
 public class ScoringPile {
 
     private CardSet cards = new CardSet();
-    private ScoreCounter score;
+    private ScoreKeeper score;
 
-    public ScoringPile(ScoreCounter score) {
+    public ScoringPile(ScoreKeeper score) {
         this.score = score;
     }
 

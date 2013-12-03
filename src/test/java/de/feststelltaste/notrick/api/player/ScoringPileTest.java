@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import de.feststelltaste.notrick.api.cards.TestCard;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
-import de.feststelltaste.notrick.api.cards.scores.TrickBasedScorer;
+import de.feststelltaste.notrick.api.cards.scores.PerTrickScorerKeeper;
 
 public class ScoringPileTest {
 
@@ -15,7 +15,7 @@ public class ScoringPileTest {
 
     @Before
     public void setUp() throws Exception {
-        scoringPile = new ScoringPile(new TrickBasedScorer());
+        scoringPile = new ScoringPile(new PerTrickScorerKeeper());
     }
 
     @Test
