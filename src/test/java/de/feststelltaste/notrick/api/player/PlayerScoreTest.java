@@ -11,8 +11,9 @@ public class PlayerScoreTest {
     @Test
     public void canSaveScores() {
         PlayerScore playerScore = new PlayerScore();
-        Play play1 = new PlayStub();
-        Play play2 = new PlayStub();
+        Play play1 = new PlayStub(1);
+        Play play2 = new PlayStub(2
+                );
 
         playerScore.addScore(play1.round(), 1);
         playerScore.addScore(play2.round(), 1);
@@ -20,6 +21,8 @@ public class PlayerScoreTest {
 
         assertEquals(2, playerScore.getScore(play1));
         assertEquals(1, playerScore.getScore(play2));
+        assertEquals(2, playerScore.getScoreFromCurrentPlay());
+        assertEquals(3, playerScore.getOverallScore());
     }
 
 }

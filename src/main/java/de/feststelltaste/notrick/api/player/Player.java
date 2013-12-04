@@ -77,7 +77,7 @@ public abstract class Player {
     }
 
     public int getCurrentScore() {
-        return score.getCurrentScore();
+        return score.getScoreFromCurrentPlay();
     }
 
 }

@@ -12,7 +12,7 @@ public class NoTrickGame {
     private Iterator<Play> playIterator;
 
     public NoTrickGame(Players players) {
-        plays.add(new NoTrickPlay(players));
+        plays.add(new NoTrickPlay(players, 1));
         this.playIterator = plays.iterator();
     }
 

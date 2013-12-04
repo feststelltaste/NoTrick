@@ -2,11 +2,10 @@ package de.feststelltaste.notrick.api.game;
 
 public abstract class Play {
 
-    private static int roundCounter = 0;
     protected final int roundOfCurrentPlay;
 
-    public Play() {
-        this.roundOfCurrentPlay = ++roundCounter;
+    public Play(int roundOfCurrentPlay) {
+        this.roundOfCurrentPlay = roundOfCurrentPlay;
     }
 
     public abstract void start();

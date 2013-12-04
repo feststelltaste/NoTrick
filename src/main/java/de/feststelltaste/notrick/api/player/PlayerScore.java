@@ -17,7 +17,7 @@ class PlayerScore {
             scoreForCurrentPlay = 0;
         }
         Integer existingScoreForPlay = scoresPerPlay.get(roundOfCurrentPlay);
-        Integer newScoreForPlay = Integer.valueOf(existingScoreForPlay + currentScore);
+        Integer newScoreForPlay = existingScoreForPlay.intValue() + currentScore;
         scoresPerPlay.put(roundOfCurrentPlay, newScoreForPlay);
         
         overAllScore += currentScore;
@@ -37,7 +37,7 @@ class PlayerScore {
         return overAllScore;
     }
 
-    public int getCurrentScore() {
+    public int getScoreFromCurrentPlay() {
         return scoreForCurrentPlay;
     }
 

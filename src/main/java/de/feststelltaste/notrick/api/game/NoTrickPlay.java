@@ -30,9 +30,10 @@ public class NoTrickPlay extends Play {
     private final DealWinner dealWinner = new HighestTypeOfFirstPlayedSuitWinner();
     private final PerTrickScorerKeeper scoreKeeper = new PerTrickScorerKeeper();
     
-    public NoTrickPlay(Players players) {
+    public NoTrickPlay(Players players, int round) {
+        super(round);
         GermanCardDeck cardDeckType = new GermanCardDeck();
-        Shuffler shuffler = new RandomShuffler(cardDeckType, new Random(1L));
+        Shuffler shuffler = new RandomShuffler(cardDeckType, new Random(0));
         CardDeck cardDeckToBePlayed = shuffler.shuffleCards();
         this.dealer = new FourCardsAtOnceAfterAnotherDealer(cardDeckToBePlayed, players);
         this.players = players;
