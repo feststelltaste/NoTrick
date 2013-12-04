@@ -10,15 +10,15 @@ import de.feststelltaste.notrick.api.cards.deck.TestCardDeck;
 import de.feststelltaste.notrick.api.player.Hand;
 import de.feststelltaste.notrick.api.player.Player;
 import de.feststelltaste.notrick.api.player.Players;
-import de.feststelltaste.notrick.api.player.ai.ComputerPlayer;
+import de.feststelltaste.notrick.api.player.ai.AiPlayer;
 
 public class FourCardsAtOnceAfterAnotherDealerTest {
 
     @Test
     public void testDeal() {
         CardDeck cardDeck = new TestCardDeck();
-        Player player1 = new ComputerPlayer("p1",new Hand(8));
-        Player player2 = new ComputerPlayer("p2",new Hand(8));
+        Player player1 = new AiPlayer("p1",new Hand(8));
+        Player player2 = new AiPlayer("p2",new Hand(8));
         Players players=  new Players();
         players.add(player1);
         players.add(player2);

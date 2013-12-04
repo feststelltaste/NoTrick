@@ -9,15 +9,15 @@ import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.cards.card.GermanCardFactory;
 
-public class LoserBrainTest {
+public class CanReturnFirstSuitableCardAiTest {
 
-    private LoserBrain b;
+    private CanReturnFirstSuitableCardAi b;
     private CardSet testCardSet;
 
     @Before
     public void setUp() throws Exception {
         testCardSet = createCardSet();
-        b = new LoserBrain();
+        b = new CanReturnFirstSuitableCardAi();
     }
 
     private CardSet createCardSet() {

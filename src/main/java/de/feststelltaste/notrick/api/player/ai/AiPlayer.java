@@ -5,11 +5,11 @@ import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.player.Hand;
 import de.feststelltaste.notrick.api.player.Player;
 
-public class ComputerPlayer extends Player {
+public class AiPlayer extends Player {
     
-    private final Brain brain = new LoserBrain();;
+    private final Ai brain = new CanReturnFirstSuitableCardAi();;
 
-    public ComputerPlayer(String name, Hand hand) {
+    public AiPlayer(String name, Hand hand) {
         this.name = name;
     }
     

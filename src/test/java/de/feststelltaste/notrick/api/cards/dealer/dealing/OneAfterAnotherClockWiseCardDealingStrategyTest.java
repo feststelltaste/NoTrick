@@ -12,14 +12,14 @@ import de.feststelltaste.notrick.api.cards.deck.TestCardDeck;
 import de.feststelltaste.notrick.api.player.Hand;
 import de.feststelltaste.notrick.api.player.Player;
 import de.feststelltaste.notrick.api.player.Players;
-import de.feststelltaste.notrick.api.player.ai.ComputerPlayer;
+import de.feststelltaste.notrick.api.player.ai.AiPlayer;
 
 public class OneAfterAnotherClockWiseCardDealingStrategyTest {
 
     @Test
     public void testDeal() {
-        Player firstPlayer = new ComputerPlayer("first", new Hand(8));
-        Player secondPlayer = new ComputerPlayer("second", new Hand(8));
+        Player firstPlayer = new AiPlayer("first", new Hand(8));
+        Player secondPlayer = new AiPlayer("second", new Hand(8));
 
         Players players = new Players();
         players.add(firstPlayer);

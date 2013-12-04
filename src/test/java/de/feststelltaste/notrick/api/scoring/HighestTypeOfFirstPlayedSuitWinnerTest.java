@@ -9,7 +9,7 @@ import de.feststelltaste.notrick.api.cards.card.CardSet;
 import de.feststelltaste.notrick.api.player.Hand;
 import de.feststelltaste.notrick.api.player.Player;
 import de.feststelltaste.notrick.api.player.Players;
-import de.feststelltaste.notrick.api.player.ai.ComputerPlayer;
+import de.feststelltaste.notrick.api.player.ai.AiPlayer;
 import de.feststelltaste.notrick.api.scoring.HighestTypeOfFirstPlayedSuitWinner;
 
 public class HighestTypeOfFirstPlayedSuitWinnerTest {
@@ -29,9 +29,9 @@ public class HighestTypeOfFirstPlayedSuitWinnerTest {
 
     private Players createThreePlayers() {
         Players players = new Players();
-        Player p1 = new ComputerPlayer("p1", new Hand(8));
-        Player p2 = new ComputerPlayer("p2", new Hand(8));
-        Player p3 = new ComputerPlayer("p3", new Hand(8));
+        Player p1 = new AiPlayer("p1", new Hand(8));
+        Player p2 = new AiPlayer("p2", new Hand(8));
+        Player p3 = new AiPlayer("p3", new Hand(8));
         players.add(p1);
         players.add(p2);
         players.add(p3);

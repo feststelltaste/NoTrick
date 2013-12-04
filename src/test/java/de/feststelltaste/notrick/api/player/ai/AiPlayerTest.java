@@ -13,14 +13,14 @@ import de.feststelltaste.notrick.api.rules.RuleSet;
 import de.feststelltaste.notrick.api.rules.NoTrickRules;
 
 
-public class ComputerPlayerTest {
+public class AiPlayerTest {
     
     @Test
     public void followsTrickTakingRules(){
         CardSet cardsOnTable = new CardSet();
         cardsOnTable.add(TestCard.A1);
         
-        Player player = new ComputerPlayer("", new Hand(8));
+        Player player = new AiPlayer("", new Hand(8));
         player.take(TestCard.B1);
         player.take(TestCard.A2);
         player.take(TestCard.A3);
