@@ -4,7 +4,6 @@ import java.util.List;
 
 import de.feststelltaste.notrick.api.cards.card.Card;
 import de.feststelltaste.notrick.api.cards.card.CardSet;
-import de.feststelltaste.notrick.api.game.Play;
 import de.feststelltaste.notrick.api.rules.RuleSet;
 
 public abstract class Player {
@@ -68,8 +67,8 @@ public abstract class Player {
         this.rules = rules;
     }
     
-    public void addScore(Play play, int currentScore) {
-        this.score.addScore(play, currentScore);
+    public void addScore(int roundOfCurrentPlay, int currentScore) {
+        this.score.addScore(roundOfCurrentPlay, currentScore);
         
     }
 

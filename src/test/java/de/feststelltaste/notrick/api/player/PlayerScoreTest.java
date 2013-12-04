@@ -9,26 +9,14 @@ import de.feststelltaste.notrick.api.game.Play;
 public class PlayerScoreTest {
 
     @Test
-    public void testScoreKeeping() {
+    public void canSaveScores() {
         PlayerScore playerScore = new PlayerScore();
-        Play play1 = new Play("play1") {
+        Play play1 = new PlayStub();
+        Play play2 = new PlayStub();
 
-            @Override
-            public void start() {
-                
-            }
-        };
-        Play play2 = new Play("play2") {
-
-            @Override
-            public void start() {
-                
-            }
-        };
-
-        playerScore.addScore(play1, 1);
-        playerScore.addScore(play2, 1);
-        playerScore.addScore(play1, 1);
+        playerScore.addScore(play1.round(), 1);
+        playerScore.addScore(play2.round(), 1);
+        playerScore.addScore(play1.round(), 1);
 
         assertEquals(2, playerScore.getScore(play1));
         assertEquals(1, playerScore.getScore(play2));

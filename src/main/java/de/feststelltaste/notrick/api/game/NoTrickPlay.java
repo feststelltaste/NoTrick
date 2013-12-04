@@ -27,9 +27,8 @@ public class NoTrickPlay extends Play {
     private final Players players;
     private final DealWinner dealWinner = new HighestTypeOfFirstPlayedSuitWinner();
     private final PerTrickScorerKeeper scoreKeeper = new PerTrickScorerKeeper();
-
+    
     public NoTrickPlay(Players players) {
-        super("No Trick Taking!");
         GermanCardDeck cardDeck = new GermanCardDeck();
         Shuffler shuffler = new RandomShuffler(cardDeck, new Random(1L));
         CardDeck cardDeckToBePlayed = shuffler.shuffleCards();
@@ -44,7 +43,7 @@ public class NoTrickPlay extends Play {
         players.takeRules(rules);
         dealer.deal();
 
-        while (players.last().hasCards()) {
+        while (!isCurrentPlayOver()) {
             CardSet playedCards = table.allCards();
             for (Player player : players) {
                 Card cardToBePlayed = player.play(playedCards);
@@ -53,11 +52,15 @@ public class NoTrickPlay extends Play {
 
             Player winner = dealWinner.determineWinner(playedCards, players);
             int score = scoreKeeper.determine(playedCards);
-            winner.addScore(this, score);
+            winner.addScore(roundOfCurrentPlay, score);
             table.clear();
 
         }
 
+    }
+
+    protected boolean isCurrentPlayOver() {
+        return !players.last().hasCards();
     }
 
 }
